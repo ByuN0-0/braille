@@ -1,0 +1,9 @@
+[
+  { "id": "v01", "label": "ㅏ", "type": "vowel", "masks": [18], "examples": ["가", "바"] },
+  { "id": "v02", "label": "ㅣ", "type": "vowel", "masks": [17], "examples": ["이", "기"] },
+  { "id": "v03", "label": "ㅓ", "type": "vowel", "masks": [22], "examples": ["거", "먹"] },
+  { "id": "v04", "label": "ㅗ", "type": "vowel", "masks": [20], "examples": ["고", "보"] },
+  { "id": "v05", "label": "ㅡ", "type": "vowel", "masks": [16], "examples": ["그", "늦"] }
+]
+
+

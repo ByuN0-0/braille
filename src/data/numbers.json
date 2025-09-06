@@ -1,0 +1,9 @@
+[
+  { "id": "n01", "label": "1", "type": "number", "masks": [1], "examples": ["1개", "1번"] },
+  { "id": "n02", "label": "2", "type": "number", "masks": [3], "examples": ["2층", "2명"] },
+  { "id": "n03", "label": "3", "type": "number", "masks": [5], "examples": ["3일", "3시"] },
+  { "id": "n04", "label": "4", "type": "number", "masks": [7], "examples": ["4호", "4번"] },
+  { "id": "n05", "label": "5", "type": "number", "masks": [2], "examples": ["5원", "5층"] }
+]
+
+
