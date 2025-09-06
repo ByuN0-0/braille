@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function SiteHeader() {
   return (
-    <header className="w-full sticky top-0 z-50 border-b backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/30" style={{ height: "64px" }}>
+    <header className="site-header w-full sticky top-0 z-50 border-b backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/30" style={{ height: "64px" }}>
       <nav className="container h-full flex items-center justify-between">
         <Link href="/" className="text-lg font-semibold tracking-tight flex items-center">
           <span className="inline-flex items-center gap-2">

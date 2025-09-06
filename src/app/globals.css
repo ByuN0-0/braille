@@ -147,8 +147,7 @@ a.btn:hover {
   font-size: 16px;
   font-weight: 500;
   padding: 0 var(--space-lg);
-  height: 36px;
-  max-height: 48px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
@@ -170,4 +169,12 @@ a.btn:hover {
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-subtle);
   background: var(--color-background);
+}
+
+/* Header scope: keep header buttons compact */
+.site-header .btn {
+  height: 36px;
+  font-size: 14px;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
 }
