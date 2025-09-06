@@ -9,10 +9,10 @@ import QuizMCQ from "@/components/QuizMCQ";
 import QuizInput from "@/components/QuizInput";
 
 const pool = [
-  ...((consonantsInitial as any as GlyphItem[])),
-  ...((consonantsFinal as any as GlyphItem[])),
-  ...(vowels as any as GlyphItem[]),
-  ...(numbers as any as GlyphItem[]),
+  ...((consonantsInitial as unknown as GlyphItem[])),
+  ...((consonantsFinal as unknown as GlyphItem[])),
+  ...(vowels as unknown as GlyphItem[]),
+  ...(numbers as unknown as GlyphItem[]),
 ];
 
 function pickRandom<T>(arr: T[], n: number): T[] {

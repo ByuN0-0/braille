@@ -1,5 +1,5 @@
 "use client";
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import consonantsInitial from "@/data/consonants-initial.json";
 import consonantsFinal from "@/data/consonants-final.json";
@@ -10,16 +10,29 @@ import type { GlyphItem } from "@/lib/types";
 import QuizInput from "@/components/QuizInput";
 
 export default function PracticeInputPage() {
+  return (
+    <Suspense fallback={
+      <div className="space-y-2">
+        <h1 className="text-2xl font-bold">입력형 연습</h1>
+        <p className="text-sm text-gray-600">로딩 중...</p>
+      </div>
+    }>
+      <PracticeInputInner />
+    </Suspense>
+  );
+}
+
+function PracticeInputInner() {
   const params = useSearchParams();
   const section = params.get("section");
   const id = params.get("id");
 
   const item = useMemo(() => {
     const map: Record<string, GlyphItem[]> = {
-      consonants: ([...(consonantsInitial as any), ...(consonantsFinal as any)]) as any,
-      vowels: vowels as any,
-      numbers: numbers as any,
-      words: words as any,
+      consonants: ([...(consonantsInitial as unknown as GlyphItem[]), ...(consonantsFinal as unknown as GlyphItem[])]) as GlyphItem[],
+      vowels: vowels as unknown as GlyphItem[],
+      numbers: numbers as unknown as GlyphItem[],
+      words: words as unknown as GlyphItem[],
     };
     if (!section || !id || !map[section]) return null;
     return (map[section] as GlyphItem[]).find((x) => x.id === id) || null;

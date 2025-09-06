@@ -15,7 +15,7 @@ function Cell({ item }: { item: SimpleItem }) {
   return (
     <div className="border rounded-lg p-2 min-h-[84px] flex flex-col items-center justify-between">
       <div className="text-sm font-medium truncate max-w-full">{item.label}</div>
-      <div className="text-2xl leading-none" aria-hidden>
+      <div className="text-3xl leading-none inline-block rounded px-1 bg-yellow-200/60 dark:bg-yellow-400/20" aria-hidden>
         {item.masks.map((m) => maskToUnicode(m)).join("")}
       </div>
       <div className="flex gap-1 mt-1">
@@ -44,9 +44,9 @@ export default function BrailleTablePage() {
   const initials = (consonantsInitial as unknown as GlyphItem[]).map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
   const finals = (consonantsFinal as unknown as GlyphItem[]).map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
   const vowelsAll = (vowels as unknown as GlyphItem[]).map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
-  const numbersAll = (numbers as unknown as GlyphItem[]).map((n: any) => ({ id: n.id, label: n.label, masks: n.masks }));
-  const abbrs = (abbreviations as unknown as any[]).map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
-  const abbrPhraseItems = (abbrPhrases as unknown as any[]).map((p) => ({ id: p.id, label: p.label, masks: p.cells.flatMap((c: any) => c.masks) }));
+  const numbersAll = (numbers as unknown as GlyphItem[]).map((n) => ({ id: n.id, label: n.label, masks: n.masks }));
+  const abbrs = (abbreviations as unknown as { id: string; label: string; masks: number[] }[]).map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
+  const abbrPhraseItems = (abbrPhrases as unknown as { id: string; label: string; cells: { masks: number[] }[] }[]).map((p) => ({ id: p.id, label: p.label, masks: p.cells.flatMap((c) => c.masks) }));
 
   return (
     <div className="space-y-6">

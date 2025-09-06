@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import consonantsInitial from "@/data/consonants-initial.json";
 import consonantsFinal from "@/data/consonants-final.json";
 import vowels from "@/data/vowels.json";
@@ -8,10 +8,10 @@ import type { GlyphItem } from "@/lib/types";
 import QuizMCQ from "@/components/QuizMCQ";
 
 const pool = [
-  ...((consonantsInitial as any as GlyphItem[])),
-  ...((consonantsFinal as any as GlyphItem[])),
-  ...(vowels as any as GlyphItem[]),
-  ...(numbers as any as GlyphItem[]),
+  ...((consonantsInitial as unknown as GlyphItem[])),
+  ...((consonantsFinal as unknown as GlyphItem[])),
+  ...(vowels as unknown as GlyphItem[]),
+  ...(numbers as unknown as GlyphItem[]),
 ];
 
 function pickRandom<T>(arr: T[], n: number): T[] {
@@ -25,7 +25,6 @@ function pickRandom<T>(arr: T[], n: number): T[] {
 }
 
 export default function PracticeChoicePage() {
-  const [seed] = useState(() => Math.random());
   const questions = useMemo(() => {
     const qs = pickRandom(pool, 10);
     return qs.map((q) => {
@@ -39,7 +38,7 @@ export default function PracticeChoicePage() {
         choices: merged.map((m) => ({ label: m.label, mask: m.masks[0] })),
       } as const;
     });
-  }, [seed]);
+  }, []);
 
   return (
     <div className="space-y-6">
