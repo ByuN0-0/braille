@@ -35,8 +35,7 @@ export const DotPadInput: FC<DotPadInputProps> = ({ value, onChange, className }
 			className={`inline-flex flex-col items-center gap-3 outline-none ${className ?? ""}`}
 		>
 			<div className="grid grid-cols-2 grid-rows-3 gap-2">
-				{Array.from({ length: 6 }).map((_, i) => {
-					const d = i + 1;
+				{[1, 4, 2, 5, 3, 6].map((d) => {
 					const on = ((value >> (d - 1)) & 1) === 1;
 					return (
 						<button

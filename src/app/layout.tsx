@@ -33,6 +33,7 @@ export default function RootLayout({
             <div className="flex items-center gap-4 text-sm">
               <a href="/learn" className="hover:underline">학습</a>
               <a href="/practice" className="hover:underline">연습</a>
+              <a href="/table" className="hover:underline">점자표</a>
             </div>
           </nav>
         </header>

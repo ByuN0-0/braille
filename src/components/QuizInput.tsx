@@ -1,0 +1,57 @@
+"use client";
+import { FC, useMemo, useState } from "react";
+import { DotPadInput } from "@/components/DotPadInput";
+import { BrailleGlyph, } from "@/components/BrailleGlyph";
+import { equalMasks } from "@/lib/braille";
+
+type QuizInputProps = {
+	label: string; // 문제 라벨 (글자 또는 단어)
+	answerMasks: number[]; // 정답 마스크 배열(단어는 여러 글자)
+};
+
+export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks }) => {
+	const [inputMask, setInputMask] = useState(0);
+	const [history, setHistory] = useState<{ correct: boolean; given: number }[]>([]);
+	const isCorrect = useMemo(() => equalMasks([inputMask], [answerMasks[0]]), [inputMask, answerMasks]);
+
+	return (
+		<div className="space-y-3">
+			<div>
+				<p className="text-sm text-gray-700">다음에 해당하는 점자를 입력하세요</p>
+				<h3 className="text-xl font-semibold">{label}</h3>
+			</div>
+			<DotPadInput value={inputMask} onChange={setInputMask} />
+			<div className="flex items-center gap-3">
+				<BrailleGlyph mask={inputMask} label="입력" />
+				<span className={`text-sm ${isCorrect ? "text-green-600" : "text-red-600"}`}>{isCorrect ? "정답" : "오답"}</span>
+			</div>
+			<div className="flex items-center gap-3 text-sm">
+				<button
+					type="button"
+					className="px-3 py-1.5 rounded border"
+					onClick={() => setInputMask(0)}
+				>
+					초기화
+				</button>
+				<button
+					type="button"
+					className="px-3 py-1.5 rounded border"
+					onClick={() => setHistory((h) => [{ correct: isCorrect, given: inputMask }, ...h].slice(0, 5))}
+				>
+					기록
+				</button>
+			</div>
+			{history.length ? (
+				<ul className="text-xs text-gray-600 list-disc list-inside">
+					{history.map((h, idx) => (
+						<li key={idx}>{h.correct ? "정답" : "오답"} - 입력 마스크 {h.given}</li>
+					))}
+				</ul>
+			) : null}
+		</div>
+	);
+};
+
+export default QuizInput;
+
+

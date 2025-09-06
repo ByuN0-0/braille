@@ -10,8 +10,7 @@ const isDotOn = (mask: number, dotIndex: number) => ((mask >> (dotIndex - 1)) & 
 export const BrailleDots: FC<BrailleDotsProps> = ({ mask, className }) => {
 	return (
 		<div className={`grid grid-cols-2 grid-rows-3 gap-2 ${className ?? ""}`} aria-hidden>
-			{Array.from({ length: 6 }).map((_, i) => {
-				const d = i + 1;
+			{[1, 4, 2, 5, 3, 6].map((d) => {
 				const on = isDotOn(mask, d);
 				return (
 					<span
