@@ -42,7 +42,7 @@ export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, subtitle, answe
 			<div className="flex flex-col gap-1">
 				<div className="flex items-center gap-3">
 				{questionType === "label-to-glyph" ? (
-					<h3 className="text-xl font-semibold">{label}의 점자는?</h3>
+					<h3 className="text-xl font-semibold">{`'${label}'의 점자는?`}</h3>
 				) : (
 					<div className="flex items-center gap-4">
 						{renderGlyph(answerMask, answerMasks)}
