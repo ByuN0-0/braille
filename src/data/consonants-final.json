@@ -1,0 +1,19 @@
+[
+  { "id": "cf01", "label": "ㄱ", "type": "consonant", "masks": [1],  "cells": [ { "dots": [1], "masks": [1] } ], "examples": ["밖", "국"] },
+  { "id": "cf02", "label": "ㄴ", "type": "consonant", "masks": [18], "cells": [ { "dots": [2,5], "masks": [18] } ], "examples": ["산", "찬"] },
+  { "id": "cf03", "label": "ㄷ", "type": "consonant", "masks": [20], "cells": [ { "dots": [3,5], "masks": [20] } ], "examples": ["닫", "꽃잎"] },
+  { "id": "cf04", "label": "ㄹ", "type": "consonant", "masks": [2],  "cells": [ { "dots": [2], "masks": [2] } ], "examples": ["말", "칼날"] },
+  { "id": "cf05", "label": "ㅁ", "type": "consonant", "masks": [34], "cells": [ { "dots": [2,6], "masks": [34] } ], "examples": ["밤", "앎"] },
+  { "id": "cf06", "label": "ㅂ", "type": "consonant", "masks": [3],  "cells": [ { "dots": [1,2], "masks": [3] } ], "examples": ["밥", "넓"] },
+  { "id": "cf07", "label": "ㅅ", "type": "consonant", "masks": [4],  "cells": [ { "dots": [3], "masks": [4] } ], "examples": ["옷", "낯"] },
+  { "id": "cf08", "label": "ㅇ", "type": "consonant", "masks": [54], "cells": [ { "dots": [2,3,5,6], "masks": [54] } ], "examples": ["방", "강"], "notes": "종성 전용 받침 ㅇ" },
+  { "id": "cf09", "label": "ㅈ", "type": "consonant", "masks": [5],  "cells": [ { "dots": [1,3], "masks": [5] } ], "examples": ["빚", "곶"] },
+  { "id": "cf10", "label": "ㅊ", "type": "consonant", "masks": [6],  "cells": [ { "dots": [2,3], "masks": [6] } ], "examples": ["낮", "꽃"] },
+  { "id": "cf11", "label": "ㅋ", "type": "consonant", "masks": [22], "cells": [ { "dots": [2,3,5], "masks": [22] } ], "examples": ["밖", "닭"] },
+  { "id": "cf12", "label": "ㅌ", "type": "consonant", "masks": [38], "cells": [ { "dots": [2,3,6], "masks": [38] } ], "examples": ["옷깃", "흙"] },
+  { "id": "cf13", "label": "ㅍ", "type": "consonant", "masks": [50], "cells": [ { "dots": [2,5,6], "masks": [50] } ], "examples": ["앞", "잎"] },
+  { "id": "cf14", "label": "ㅎ", "type": "consonant", "masks": [52], "cells": [ { "dots": [3,5,6], "masks": [52] } ], "examples": ["않", "넋"] },
+  { "id": "cf15", "label": "ㅆ", "type": "consonant", "masks": [36], "cells": [ { "dots": [3,6], "masks": [36] } ], "examples": ["있", "뺏"] }
+]
+
+

@@ -1,9 +1,0 @@
-[
-  { "id": "c01", "label": "ㄱ", "type": "consonant", "masks": [1], "examples": ["가", "고"] },
-  { "id": "c02", "label": "ㄴ", "type": "consonant", "masks": [3], "examples": ["나", "눈"] },
-  { "id": "c03", "label": "ㄷ", "type": "consonant", "masks": [5], "examples": ["다", "두"] },
-  { "id": "c04", "label": "ㄹ", "type": "consonant", "masks": [7], "examples": ["라", "물"] },
-  { "id": "c05", "label": "ㅁ", "type": "consonant", "masks": [2], "examples": ["마", "몸"] }
-]
-
-

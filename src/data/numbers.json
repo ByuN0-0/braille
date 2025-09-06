@@ -1,9 +1,15 @@
 [
-  { "id": "n01", "label": "1", "type": "number", "masks": [1], "examples": ["1개", "1번"] },
-  { "id": "n02", "label": "2", "type": "number", "masks": [3], "examples": ["2층", "2명"] },
-  { "id": "n03", "label": "3", "type": "number", "masks": [5], "examples": ["3일", "3시"] },
-  { "id": "n04", "label": "4", "type": "number", "masks": [7], "examples": ["4호", "4번"] },
-  { "id": "n05", "label": "5", "type": "number", "masks": [2], "examples": ["5원", "5층"] }
+  { "id": "n00", "label": "수표", "type": "number", "masks": [60], "cells": [ { "dots": [3,4,5,6], "masks": [60] } ], "examples": ["⠼123"], "notes": "숫자표" },
+  { "id": "n01", "label": "1", "type": "number", "masks": [1],  "cells": [ { "dots": [1], "masks": [1] } ], "examples": ["1개", "1번"] },
+  { "id": "n02", "label": "2", "type": "number", "masks": [3],  "cells": [ { "dots": [1,2], "masks": [3] } ], "examples": ["2층", "2명"] },
+  { "id": "n03", "label": "3", "type": "number", "masks": [9],  "cells": [ { "dots": [1,4], "masks": [9] } ], "examples": ["3일", "3시"] },
+  { "id": "n04", "label": "4", "type": "number", "masks": [25], "cells": [ { "dots": [1,4,5], "masks": [25] } ], "examples": ["4호", "4번"] },
+  { "id": "n05", "label": "5", "type": "number", "masks": [17], "cells": [ { "dots": [1,5], "masks": [17] } ], "examples": ["5원", "5층"] },
+  { "id": "n06", "label": "6", "type": "number", "masks": [11], "cells": [ { "dots": [1,2,4], "masks": [11] } ], "examples": ["6호"] },
+  { "id": "n07", "label": "7", "type": "number", "masks": [27], "cells": [ { "dots": [1,2,4,5], "masks": [27] } ], "examples": ["7층"] },
+  { "id": "n08", "label": "8", "type": "number", "masks": [19], "cells": [ { "dots": [1,2,5], "masks": [19] } ], "examples": ["8명"] },
+  { "id": "n09", "label": "9", "type": "number", "masks": [13], "cells": [ { "dots": [1,3,5], "masks": [13] } ], "examples": ["9시"] },
+  { "id": "n10", "label": "0", "type": "number", "masks": [29], "cells": [ { "dots": [2,4,5], "masks": [29] } ], "examples": ["10"] }
 ]
 
 

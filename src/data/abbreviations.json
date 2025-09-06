@@ -1,0 +1,30 @@
+[
+  { "id": "ab01", "label": "가", "type": "abbreviation", "masks": [43], "cells": [ { "dots": [1,2,4,6], "masks": [43] } ] },
+  { "id": "ab02", "label": "나", "type": "abbreviation", "masks": [9],  "cells": [ { "dots": [1,4], "masks": [9] } ] },
+  { "id": "ab03", "label": "다", "type": "abbreviation", "masks": [10], "cells": [ { "dots": [2,4], "masks": [10] } ] },
+  { "id": "ab04", "label": "마", "type": "abbreviation", "masks": [17], "cells": [ { "dots": [1,5], "masks": [17] } ] },
+  { "id": "ab05", "label": "바", "type": "abbreviation", "masks": [24], "cells": [ { "dots": [4,5], "masks": [24] } ] },
+  { "id": "ab06", "label": "사", "type": "abbreviation", "masks": [7],  "cells": [ { "dots": [1,2,3], "masks": [7] } ] },
+  { "id": "ab07", "label": "자", "type": "abbreviation", "masks": [40], "cells": [ { "dots": [4,6], "masks": [40] } ] },
+  { "id": "ab08", "label": "카", "type": "abbreviation", "masks": [11], "cells": [ { "dots": [1,2,4], "masks": [11] } ] },
+  { "id": "ab09", "label": "타", "type": "abbreviation", "masks": [19], "cells": [ { "dots": [1,2,5], "masks": [19] } ] },
+  { "id": "ab10", "label": "파", "type": "abbreviation", "masks": [25], "cells": [ { "dots": [1,4,5], "masks": [25] } ] },
+  { "id": "ab11", "label": "하", "type": "abbreviation", "masks": [26], "cells": [ { "dots": [2,4,5], "masks": [26] } ] },
+  { "id": "ab12", "label": "억", "type": "abbreviation", "masks": [57], "cells": [ { "dots": [1,4,5,6], "masks": [57] } ] },
+  { "id": "ab13", "label": "옹", "type": "abbreviation", "masks": [63], "cells": [ { "dots": [1,2,3,4,5,6], "masks": [63] } ] },
+  { "id": "ab14", "label": "울", "type": "abbreviation", "masks": [47], "cells": [ { "dots": [1,2,3,4,6], "masks": [47] } ] },
+  { "id": "ab15", "label": "옥", "type": "abbreviation", "masks": [45], "cells": [ { "dots": [1,3,4,6], "masks": [45] } ] },
+  { "id": "ab16", "label": "연", "type": "abbreviation", "masks": [33], "cells": [ { "dots": [1,6], "masks": [33] } ] },
+  { "id": "ab17", "label": "운", "type": "abbreviation", "masks": [27], "cells": [ { "dots": [1,2,4,5], "masks": [27] } ] },
+  { "id": "ab18", "label": "온", "type": "abbreviation", "masks": [55], "cells": [ { "dots": [1,2,3,5,6], "masks": [55] } ] },
+  { "id": "ab19", "label": "언", "type": "abbreviation", "masks": [62], "cells": [ { "dots": [2,3,4,5,6], "masks": [62] } ] },
+  { "id": "ab20", "label": "얼", "type": "abbreviation", "masks": [30], "cells": [ { "dots": [2,3,4,5], "masks": [30] } ] },
+  { "id": "ab21", "label": "열", "type": "abbreviation", "masks": [51], "cells": [ { "dots": [1,2,5,6], "masks": [51] } ] },
+  { "id": "ab22", "label": "인", "type": "abbreviation", "masks": [31], "cells": [ { "dots": [1,2,3,4,5], "masks": [31] } ] },
+  { "id": "ab23", "label": "영", "type": "abbreviation", "masks": [59], "cells": [ { "dots": [1,2,4,5,6], "masks": [59] } ] },
+  { "id": "ab24", "label": "을", "type": "abbreviation", "masks": [46], "cells": [ { "dots": [2,3,4,6], "masks": [46] } ] },
+  { "id": "ab25", "label": "은", "type": "abbreviation", "masks": [53], "cells": [ { "dots": [1,3,5,6], "masks": [53] } ] },
+  { "id": "ab26", "label": "것", "type": "abbreviation", "masks": [56, 14], "cells": [ { "dots": [4,5,6], "masks": [56] }, { "dots": [2,3,4], "masks": [14] } ] }
+]
+
+

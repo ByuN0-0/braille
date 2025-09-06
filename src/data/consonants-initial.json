@@ -1,0 +1,19 @@
+[
+  { "id": "ci01", "label": "ㄱ", "type": "consonant", "masks": [8], "cells": [ { "dots": [4], "masks": [8] } ], "examples": ["가", "고"] },
+  { "id": "ci02", "label": "ㄴ", "type": "consonant", "masks": [9], "cells": [ { "dots": [1,4], "masks": [9] } ], "examples": ["나", "노"] },
+  { "id": "ci03", "label": "ㄷ", "type": "consonant", "masks": [10], "cells": [ { "dots": [2,4], "masks": [10] } ], "examples": ["다", "도"] },
+  { "id": "ci04", "label": "ㄹ", "type": "consonant", "masks": [16], "cells": [ { "dots": [5], "masks": [16] } ], "examples": ["라", "로"] },
+  { "id": "ci05", "label": "ㅁ", "type": "consonant", "masks": [17], "cells": [ { "dots": [1,5], "masks": [17] } ], "examples": ["마", "모"] },
+  { "id": "ci06", "label": "ㅂ", "type": "consonant", "masks": [24], "cells": [ { "dots": [4,5], "masks": [24] } ], "examples": ["바", "보"] },
+  { "id": "ci07", "label": "ㅅ", "type": "consonant", "masks": [32], "cells": [ { "dots": [6], "masks": [32] } ], "examples": ["사", "소"] },
+  { "id": "ci08", "label": "ㅇ", "type": "consonant", "masks": [0], "cells": [ { "dots": [], "masks": [0] } ], "examples": ["아이", "오이"], "notes": "초성 생략" },
+  { "id": "ci09", "label": "ㅈ", "type": "consonant", "masks": [40], "cells": [ { "dots": [4,6], "masks": [40] } ], "examples": ["자", "조"] },
+  { "id": "ci10", "label": "ㅊ", "type": "consonant", "masks": [48], "cells": [ { "dots": [5,6], "masks": [48] } ], "examples": ["차", "초"] },
+  { "id": "ci11", "label": "ㅋ", "type": "consonant", "masks": [11], "cells": [ { "dots": [1,2,4], "masks": [11] } ], "examples": ["카", "코"] },
+  { "id": "ci12", "label": "ㅌ", "type": "consonant", "masks": [19], "cells": [ { "dots": [1,2,5], "masks": [19] } ], "examples": ["타", "토"] },
+  { "id": "ci13", "label": "ㅍ", "type": "consonant", "masks": [25], "cells": [ { "dots": [1,4,5], "masks": [25] } ], "examples": ["파", "포"] },
+  { "id": "ci14", "label": "ㅎ", "type": "consonant", "masks": [26], "cells": [ { "dots": [2,4,5], "masks": [26] } ], "examples": ["하", "호"] },
+  { "id": "ci15", "label": "된소리표", "type": "consonant", "masks": [32], "cells": [ { "dots": [6], "masks": [32] } ], "examples": ["싸", "짝"], "notes": "초성 된소리 표기" }
+]
+
+

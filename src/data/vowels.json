@@ -1,9 +1,25 @@
 [
-  { "id": "v01", "label": "ㅏ", "type": "vowel", "masks": [18], "examples": ["가", "바"] },
-  { "id": "v02", "label": "ㅣ", "type": "vowel", "masks": [17], "examples": ["이", "기"] },
-  { "id": "v03", "label": "ㅓ", "type": "vowel", "masks": [22], "examples": ["거", "먹"] },
-  { "id": "v04", "label": "ㅗ", "type": "vowel", "masks": [20], "examples": ["고", "보"] },
-  { "id": "v05", "label": "ㅡ", "type": "vowel", "masks": [16], "examples": ["그", "늦"] }
+  { "id": "v01", "label": "ㅏ", "type": "vowel", "masks": [35], "cells": [ { "dots": [1,2,6], "masks": [35] } ], "examples": ["가", "바"] },
+  { "id": "v02", "label": "ㅑ", "type": "vowel", "masks": [28], "cells": [ { "dots": [3,4,5], "masks": [28] } ], "examples": ["야", "약"] },
+  { "id": "v03", "label": "ㅓ", "type": "vowel", "masks": [14], "cells": [ { "dots": [2,3,4], "masks": [14] } ], "examples": ["거", "먹"] },
+  { "id": "v04", "label": "ㅕ", "type": "vowel", "masks": [49], "cells": [ { "dots": [1,5,6], "masks": [49] } ], "examples": ["여", "벽"] },
+  { "id": "v05", "label": "ㅗ", "type": "vowel", "masks": [37], "cells": [ { "dots": [1,3,6], "masks": [37] } ], "examples": ["고", "보"] },
+  { "id": "v06", "label": "ㅛ", "type": "vowel", "masks": [44], "cells": [ { "dots": [3,4,6], "masks": [44] } ], "examples": ["요", "효"] },
+  { "id": "v07", "label": "ㅜ", "type": "vowel", "masks": [13], "cells": [ { "dots": [1,3,4], "masks": [13] } ], "examples": ["두", "부"] },
+  { "id": "v08", "label": "ㅠ", "type": "vowel", "masks": [41], "cells": [ { "dots": [1,4,6], "masks": [41] } ], "examples": ["유", "규"] },
+  { "id": "v09", "label": "ㅡ", "type": "vowel", "masks": [42], "cells": [ { "dots": [2,4,6], "masks": [42] } ], "examples": ["그", "늦"] },
+  { "id": "v10", "label": "ㅣ", "type": "vowel", "masks": [21], "cells": [ { "dots": [1,3,5], "masks": [21] } ], "examples": ["이", "기"] },
+  { "id": "v11", "label": "ㅐ", "type": "vowel", "masks": [23], "cells": [ { "dots": [1,2,3,5], "masks": [23] } ], "examples": ["개", "새"] },
+  { "id": "v12", "label": "ㅒ", "type": "vowel", "masks": [28, 23], "cells": [ { "dots": [3,4,5], "masks": [28] }, { "dots": [1,2,3,5], "masks": [23] } ], "examples": ["얘", "걔"] },
+  { "id": "v13", "label": "ㅔ", "type": "vowel", "masks": [29], "cells": [ { "dots": [1,3,4,5], "masks": [29] } ], "examples": ["세", "네"] },
+  { "id": "v14", "label": "ㅖ", "type": "vowel", "masks": [12], "cells": [ { "dots": [3,4], "masks": [12] } ], "examples": ["예", "혜"] },
+  { "id": "v15", "label": "ㅘ", "type": "vowel", "masks": [39], "cells": [ { "dots": [1,2,3,6], "masks": [39] } ], "examples": ["와", "과"] },
+  { "id": "v16", "label": "ㅙ", "type": "vowel", "masks": [39, 23], "cells": [ { "dots": [1,2,3,6], "masks": [39] }, { "dots": [1,2,3,5], "masks": [23] } ], "examples": ["왜", "괘"] },
+  { "id": "v17", "label": "ㅚ", "type": "vowel", "masks": [61], "cells": [ { "dots": [1,3,4,5,6], "masks": [61] } ], "examples": ["외", "뇌"] },
+  { "id": "v18", "label": "ㅝ", "type": "vowel", "masks": [15], "cells": [ { "dots": [1,2,3,4], "masks": [15] } ], "examples": ["워", "권"] },
+  { "id": "v19", "label": "ㅞ", "type": "vowel", "masks": [15, 23], "cells": [ { "dots": [1,2,3,4], "masks": [15] }, { "dots": [1,2,3,5], "masks": [23] } ], "examples": ["웨", "궤"] },
+  { "id": "v20", "label": "ㅟ", "type": "vowel", "masks": [13, 23], "cells": [ { "dots": [1,3,4], "masks": [13] }, { "dots": [1,2,3,5], "masks": [23] } ], "examples": ["위", "귀"] },
+  { "id": "v21", "label": "ㅢ", "type": "vowel", "masks": [58], "cells": [ { "dots": [2,4,5,6], "masks": [58] } ], "examples": ["의", "늬"] }
 ]
 
 
