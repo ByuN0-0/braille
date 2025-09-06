@@ -8,9 +8,10 @@ type QuizInputProps = {
 	label: string; // 문제 라벨 (글자 또는 단어)
 	answerMasks: number[]; // 정답 마스크 배열(단어는 여러 글자)
 	subtitle?: string; // 힌트(예: 초성/종성)
+	onResolved?: (result: { correct: boolean }) => void;
 };
 
-export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle }) => {
+export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle, onResolved }) => {
 	const [inputMask, setInputMask] = useState(0);
 	const [history, setHistory] = useState<{ correct: boolean; given: number }[]>([]);
 	const isCorrect = useMemo(() => equalMasks([inputMask], [answerMasks[0]]), [inputMask, answerMasks]);
@@ -41,6 +42,13 @@ export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle }) 
 					onClick={() => setHistory((h) => [{ correct: isCorrect, given: inputMask }, ...h].slice(0, 5))}
 				>
 					기록
+				</button>
+				<button
+					type="button"
+					className="px-3 py-1.5 rounded border bg-blue-50 hover:bg-blue-100"
+					onClick={() => onResolved?.({ correct: isCorrect })}
+				>
+					제출
 				</button>
 			</div>
 			{history.length ? (

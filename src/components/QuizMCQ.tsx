@@ -1,5 +1,5 @@
 "use client";
-import { FC, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { maskToUnicode } from "@/lib/braille";
 import BrailleDots from "@/components/BrailleDots";
 
@@ -11,6 +11,7 @@ export type QuizMCQProps = {
 	answerMask?: number;
 	answerMasks?: number[];
 	choices: Choice[]; // 4지선다
+	onResolved?: (result: { correct: boolean; selectedIndex: number }) => void;
 };
 
 const renderGlyph = (mask?: number, masks?: number[]) => {
@@ -29,8 +30,14 @@ const renderGlyph = (mask?: number, masks?: number[]) => {
 	);
 };
 
-export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, subtitle, answerMask, answerMasks, choices }) => {
+export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, subtitle, answerMask, answerMasks, choices, onResolved }) => {
 	const [selected, setSelected] = useState<number | null>(null);
+
+	// 새 문제로 바뀔 때 선택 상태 초기화
+	useEffect(() => {
+		setSelected(null);
+	// label/answer/choices가 바뀌면 새로운 문제로 간주
+	}, [label, answerMask, answerMasks && answerMasks.join(","), choices.map((c) => `${c.label}:${c.mask ?? c.masks?.join("+") ?? ""}`).join("|")]);
 	const correct = useMemo(() => selected != null && (
 		choices[selected].mask != null
 			? choices[selected].mask === answerMask
@@ -57,7 +64,13 @@ export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, subtitle, answe
 					<button
 						key={idx}
 						className={`rounded-xl border p-3 text-left hover:shadow-sm transition ${selected === idx ? (correct ? "border-green-600" : "border-red-600") : ""}`}
-						onClick={() => setSelected(idx)}
+						onClick={() => {
+							setSelected(idx);
+							if (selected == null) {
+								const willBeCorrect = (choices[idx].mask != null ? choices[idx].mask === answerMask : JSON.stringify(choices[idx].masks) === JSON.stringify(answerMasks));
+								onResolved?.({ correct: willBeCorrect, selectedIndex: idx });
+							}
+						}}
 					>
 						{questionType === "label-to-glyph" ? (
 							<div className="flex items-center gap-3">
