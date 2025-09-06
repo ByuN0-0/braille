@@ -178,3 +178,9 @@ a.btn:hover {
   padding-left: var(--space-md);
   padding-right: var(--space-md);
 }
+
+/* Prevent awkward Korean word-breaks */
+.no-break {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}

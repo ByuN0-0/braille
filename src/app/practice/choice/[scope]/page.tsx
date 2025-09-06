@@ -111,9 +111,9 @@ export default function ChoiceScopePage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">{title} - 객관식 연습</h1>
-        <div className="flex items-center gap-3 text-sm">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <h1 className="text-2xl font-bold no-break">{title} - 객관식 연습</h1>
+        <div className="flex items-center gap-3 text-sm flex-shrink-0">
           <span>맞음 {correctCount}</span>
           <span>틀림 {wrongCount}</span>
           <span>총 {totalCount}</span>
