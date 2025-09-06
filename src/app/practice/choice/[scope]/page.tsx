@@ -79,7 +79,7 @@ export default function ChoiceScopePage() {
         )),
       };
     });
-  }, [pool]);
+  }, [pool, scope]);
 
   return (
     <div className="space-y-6">

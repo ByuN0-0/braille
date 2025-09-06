@@ -34,10 +34,12 @@ export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, subtitle, answe
 	const [selected, setSelected] = useState<number | null>(null);
 
 	// 새 문제로 바뀔 때 선택 상태 초기화
+	const answersKey = answerMasks ? answerMasks.join(",") : "";
+	const choicesKey = choices.map((c) => `${c.label}:${c.mask ?? c.masks?.join("+") ?? ""}`).join("|");
 	useEffect(() => {
 		setSelected(null);
 	// label/answer/choices가 바뀌면 새로운 문제로 간주
-	}, [label, answerMask, answerMasks && answerMasks.join(","), choices.map((c) => `${c.label}:${c.mask ?? c.masks?.join("+") ?? ""}`).join("|")]);
+	}, [label, answerMask, answersKey, choicesKey]);
 	const correct = useMemo(() => selected != null && (
 		choices[selected].mask != null
 			? choices[selected].mask === answerMask
