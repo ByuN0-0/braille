@@ -12,7 +12,7 @@ type CardProps = {
 
 export const Card: FC<CardProps> = ({ title, description, href, badge, children, className }) => {
 	const content = (
-		<div className={`rounded-xl border p-4 hover:shadow-sm transition ${className ?? ""}`}>
+		<div className={`rounded-xl card p-4 transition ${className ?? ""}`}>
 			<div className="flex items-center justify-between gap-3 mb-2">
 				<h3 className="text-lg font-semibold">{title}</h3>
 				{badge}

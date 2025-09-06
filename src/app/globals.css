@@ -1,8 +1,52 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 @import "tailwindcss";
 
 :root {
+  /* colors */
   --background: #ffffff;
   --foreground: #171717;
+  --color-text: #171717;
+  --color-background: #ffffff;
+  --color-surface-muted: #FAFAFA;
+  --color-surface-inverted: #171717;
+
+  /* spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+
+  /* radii */
+  --radius-sm: 6px;
+  --radius-md: 8px; /* button */
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  /* shadows */
+  --shadow-outline-subtle: 0 0 0 1px rgba(0,0,0,0.08);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.12);
+  --shadow-popover: 0 10px 25px rgba(0,0,0,0.15);
+  --shadow-focus-ring: 0 0 0 2px rgba(0,0,0,0.85);
+
+  /* borders */
+  --border-subtle: #E5E5E5; /* gray-200 */
+  --border-strong: #D4D4D4; /* gray-300 */
+
+  /* container */
+  --container-max: 1152px;
+  --container-pad-mobile: 16px;
+  --container-pad-desktop: 24px;
+
+  /* typography */
+  --font-size-body: 16px;
+  --line-height-body: 24px;
+  --h1-size: 48px;
+  --h1-weight: 800;
+  --h1-line: 48px;
+  --h1-tracking: -2.4px;
 }
 
 @theme inline {
@@ -20,7 +64,110 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    sans-serif;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+/* Default border color to subtle gray */
+*,
+*::before,
+*::after {
+  border-color: var(--border-subtle);
+}
+
+/* Headings */
+h1 {
+  font-size: var(--h1-size);
+  font-weight: var(--h1-weight);
+  line-height: var(--h1-line);
+  letter-spacing: var(--h1-tracking);
+}
+
+/* Hero responsive title: max 76px, scales down on smaller screens */
+.hero-title {
+  font-size: clamp(28px, 8vw, 76px);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+.hero-subtitle {
+  font-size: clamp(14px, 2.3vw, 20px);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+}
+.hero-actions {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+}
+
+/* Links */
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+/* Buttons (including anchor buttons) shouldn't show underline */
+.btn,
+a.btn,
+.btn:hover,
+a.btn:hover {
+  text-decoration: none;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad-mobile);
+  padding-right: var(--container-pad-mobile);
+}
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--container-pad-desktop);
+    padding-right: var(--container-pad-desktop);
+  }
+}
+
+/* Buttons */
+.btn {
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 var(--space-lg);
+  height: 36px;
+  max-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.btn-primary {
+  background: var(--color-surface-inverted);
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0);
+}
+.btn-secondary {
+  background: #fff;
+  color: var(--color-text);
+  box-shadow: var(--shadow-outline-subtle), 0 0 0 1px rgb(250,250,250);
+}
+
+/* Cards */
+.card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-subtle);
+  background: var(--color-background);
 }

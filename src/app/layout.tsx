@@ -26,11 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         <SiteHeader />
-        <main className="max-w-6xl mx-auto px-4 md:px-6 py-10">
+        <main className="container py-10 flex-1">
           {children}
         </main>
         <SiteFooter />

@@ -22,11 +22,11 @@ export default function Learn() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">학습</h1>
+      <h1>학습</h1>
       <h2 className="text-lg font-semibold">초급</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {beginner.map((s) => (
-          <div key={s.key + s.title} className="rounded-xl border p-4 hover:shadow-sm transition">
+          <div key={s.key + s.title} className="rounded-xl card p-4 transition">
             <Link href={s.href} className="block">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg font-semibold">{s.title}</h3>
@@ -39,7 +39,7 @@ export default function Learn() {
       <h2 className="text-lg font-semibold mt-8">중급</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {intermediate.map((s) => (
-          <div key={s.key + s.title} className="rounded-xl border p-4 hover:shadow-sm transition">
+          <div key={s.key + s.title} className="rounded-xl card p-4 transition">
             <Link href={s.href} className="block">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg font-semibold">{s.title}</h3>
@@ -52,7 +52,7 @@ export default function Learn() {
       <h2 className="text-lg font-semibold mt-8">고급</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {advanced.map((s) => (
-          <div key={s.key + s.title} className="rounded-xl border p-4 hover:shadow-sm transition">
+          <div key={s.key + s.title} className="rounded-xl card p-4 transition">
             <Link href={s.href} className="block">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-lg font-semibold">{s.title}</h3>
