@@ -64,9 +64,11 @@ export default function ChoiceScopePage() {
       const merged = [...choices.slice(0, idx), q, ...choices.slice(idx)];
       const questionType: "label-to-glyph" | "glyph-to-label" = Math.random() > 0.5 ? "label-to-glyph" : "glyph-to-label";
       const isMulti = Array.isArray(q.masks) && q.masks.length > 1;
+      const subtitle = scope === "initial" ? "초성" : scope === "final" ? "종성" : undefined;
       return {
         questionType,
         label: q.label,
+        subtitle,
         ...(isMulti
           ? { answerMasks: q.masks }
           : { answerMask: q.mask ?? (Array.isArray(q.masks) ? q.masks[0] : undefined) }),

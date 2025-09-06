@@ -7,9 +7,10 @@ import { equalMasks } from "@/lib/braille";
 type QuizInputProps = {
 	label: string; // 문제 라벨 (글자 또는 단어)
 	answerMasks: number[]; // 정답 마스크 배열(단어는 여러 글자)
+	subtitle?: string; // 힌트(예: 초성/종성)
 };
 
-export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks }) => {
+export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle }) => {
 	const [inputMask, setInputMask] = useState(0);
 	const [history, setHistory] = useState<{ correct: boolean; given: number }[]>([]);
 	const isCorrect = useMemo(() => equalMasks([inputMask], [answerMasks[0]]), [inputMask, answerMasks]);
@@ -19,6 +20,7 @@ export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks }) => {
 			<div>
 				<p className="text-sm text-gray-700">다음에 해당하는 점자를 입력하세요</p>
 				<h3 className="text-xl font-semibold">{label}</h3>
+				{subtitle ? <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p> : null}
 			</div>
 			<DotPadInput value={inputMask} onChange={setInputMask} />
 			<div className="flex items-center gap-3">

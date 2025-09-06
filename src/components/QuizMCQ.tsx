@@ -7,6 +7,7 @@ type Choice = { label: string; mask?: number; masks?: number[] };
 export type QuizMCQProps = {
 	questionType: "glyph-to-label" | "label-to-glyph";
 	label: string;
+	subtitle?: string;
 	answerMask?: number;
 	answerMasks?: number[];
 	choices: Choice[]; // 4지선다
@@ -28,7 +29,7 @@ const renderGlyph = (mask?: number, masks?: number[]) => {
 	);
 };
 
-export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, answerMask, answerMasks, choices }) => {
+export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, subtitle, answerMask, answerMasks, choices }) => {
 	const [selected, setSelected] = useState<number | null>(null);
 	const correct = useMemo(() => selected != null && (
 		choices[selected].mask != null
@@ -38,7 +39,8 @@ export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, answerMask, ans
 
 	return (
 		<div className="space-y-3">
-			<div className="flex items-center gap-3">
+			<div className="flex flex-col gap-1">
+				<div className="flex items-center gap-3">
 				{questionType === "label-to-glyph" ? (
 					<h3 className="text-xl font-semibold">{label}의 점자는?</h3>
 				) : (
@@ -47,6 +49,8 @@ export const QuizMCQ: FC<QuizMCQProps> = ({ questionType, label, answerMask, ans
 						<span className="text-sm text-gray-600">이(가) 의미하는 것은?</span>
 					</div>
 				)}
+				</div>
+				{subtitle ? <span className="text-xs text-gray-500">{subtitle}</span> : null}
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
 				{choices.map((c, idx) => (

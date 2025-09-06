@@ -14,6 +14,9 @@ const pool = [
   ...(numbers as unknown as GlyphItem[]),
 ];
 
+const initialIds = new Set((consonantsInitial as unknown as GlyphItem[]).map((x) => x.id));
+const finalIds = new Set((consonantsFinal as unknown as GlyphItem[]).map((x) => x.id));
+
 function pickRandom<T>(arr: T[], n: number): T[] {
   const copy = [...arr];
   const result: T[] = [];
@@ -31,9 +34,11 @@ export default function PracticeChoicePage() {
       const choices = pickRandom(pool.filter((x) => x.id !== q.id), 3);
       const idx = Math.floor(Math.random() * 4);
       const merged = [...choices.slice(0, idx), q, ...choices.slice(idx)];
+      const subtitle = initialIds.has(q.id) ? "초성" : finalIds.has(q.id) ? "종성" : undefined;
       return {
         questionType: Math.random() > 0.5 ? "label-to-glyph" : "glyph-to-label",
         label: q.label,
+        subtitle,
         answerMask: q.masks[0],
         choices: merged.map((m) => ({ label: m.label, mask: m.masks[0] })),
       } as const;

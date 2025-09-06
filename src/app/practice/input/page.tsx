@@ -48,11 +48,17 @@ function PracticeInputInner() {
   }
 
   const answerMasks = item.type === "number" && item.masks.length > 1 ? [item.masks[item.masks.length - 1]] : item.masks;
+  const isConsonant = item.type === "consonant";
+  const subtitle = isConsonant
+    ? ([...(consonantsInitial as unknown as GlyphItem[])].some((x) => x.id === item.id)
+        ? "초성"
+        : ([...(consonantsFinal as unknown as GlyphItem[])].some((x) => x.id === item.id) ? "종성" : undefined))
+    : undefined;
 
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-bold">입력형 연습</h1>
-      <QuizInput label={item.label} answerMasks={answerMasks} />
+      <QuizInput label={item.label} answerMasks={answerMasks} subtitle={subtitle} />
     </div>
   );
 }
