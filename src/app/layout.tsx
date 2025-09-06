@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "점자 학습 앱",
+  title: "만점 | 점자 학습",
   description: "자음·모음·숫자·생활 단어를 단계별로 익히세요",
 };
 
