@@ -13,7 +13,7 @@
   { "id": "cf12", "label": "ㅌ", "type": "consonant", "masks": [38], "cells": [ { "dots": [2,3,6], "masks": [38] } ], "examples": ["옷깃", "흙"] },
   { "id": "cf13", "label": "ㅍ", "type": "consonant", "masks": [50], "cells": [ { "dots": [2,5,6], "masks": [50] } ], "examples": ["앞", "잎"] },
   { "id": "cf14", "label": "ㅎ", "type": "consonant", "masks": [52], "cells": [ { "dots": [3,5,6], "masks": [52] } ], "examples": ["않", "넋"] },
-  { "id": "cf15", "label": "ㅆ", "type": "consonant", "masks": [36], "cells": [ { "dots": [3,6], "masks": [36] } ], "examples": ["있", "뺏"] }
+  { "id": "cf15", "label": "ㅆ", "type": "consonant", "masks": [12], "cells": [ { "dots": [3,4], "masks": [12] } ], "examples": ["있", "뺏"] }
 ]
 
 

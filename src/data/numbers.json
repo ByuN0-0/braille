@@ -8,8 +8,8 @@
   { "id": "n06", "label": "6", "type": "number", "masks": [11], "cells": [ { "dots": [1,2,4], "masks": [11] } ], "examples": ["6호"] },
   { "id": "n07", "label": "7", "type": "number", "masks": [27], "cells": [ { "dots": [1,2,4,5], "masks": [27] } ], "examples": ["7층"] },
   { "id": "n08", "label": "8", "type": "number", "masks": [19], "cells": [ { "dots": [1,2,5], "masks": [19] } ], "examples": ["8명"] },
-  { "id": "n09", "label": "9", "type": "number", "masks": [13], "cells": [ { "dots": [1,3,5], "masks": [13] } ], "examples": ["9시"] },
-  { "id": "n10", "label": "0", "type": "number", "masks": [29], "cells": [ { "dots": [2,4,5], "masks": [29] } ], "examples": ["10"] }
+  { "id": "n09", "label": "9", "type": "number", "masks": [10], "cells": [ { "dots": [2,4], "masks": [10] } ], "examples": ["9시"] },
+  { "id": "n10", "label": "0", "type": "number", "masks": [26], "cells": [ { "dots": [2,4,5], "masks": [26] } ], "examples": ["10"] }
 ]
 
 

@@ -4,7 +4,7 @@
   { "id": "ap03", "label": "그래서", "type": "abbr_phrase", "cells": [ { "dots": [1], "masks": [1] }, { "dots": [2,3,4], "masks": [14] } ] },
   { "id": "ap04", "label": "그런데", "type": "abbr_phrase", "cells": [ { "dots": [1], "masks": [1] }, { "dots": [1,3,4,5], "masks": [29] } ] },
   { "id": "ap05", "label": "그러므로", "type": "abbr_phrase", "cells": [ { "dots": [1], "masks": [1] }, { "dots": [2,6], "masks": [34] } ] },
-  { "id": "ap06", "label": "그리고", "type": "abbr_phrase", "cells": [ { "dots": [1], "masks": [1] }, { "dots": [1,3,6], "masks": [41] } ] },
+  { "id": "ap06", "label": "그리고", "type": "abbr_phrase", "cells": [ { "dots": [1], "masks": [1] }, { "dots": [1,3,6], "masks": [37] } ] },
   { "id": "ap07", "label": "그리하여", "type": "abbr_phrase", "cells": [ { "dots": [1], "masks": [1] }, { "dots": [1,5,6], "masks": [49] } ] }
 ]
 
