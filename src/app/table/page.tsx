@@ -21,7 +21,7 @@ function Cell({ item, span = 1 }: { item: SimpleItem; span?: number }) {
       <div className="sr-only" aria-hidden>
         점자 미리보기
       </div>
-      <div className="flex gap-1 mt-1">
+      <div className="flex gap-2 md:gap-3 mt-1 w-full items-center justify-center">
         {item.masks.map((m, i) => (
           <BrailleDots key={i} mask={m} />
         ))}
@@ -30,14 +30,15 @@ function Cell({ item, span = 1 }: { item: SimpleItem; span?: number }) {
   );
 }
 
-function Grid({ title, items, cols = 10, getSpan }: { title: string; items: SimpleItem[]; cols?: number; getSpan?: (item: SimpleItem) => number }) {
+function Grid({ title, items, cols = 10, getSpan, minPx = 96 }: { title: string; items: SimpleItem[]; cols?: number; getSpan?: (item: SimpleItem) => number; minPx?: number }) {
   return (
     <section className="space-y-2">
       <h3 className="text-base font-semibold">{title}</h3>
       <div
         className="grid gap-2"
         style={{
-          gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+          // 모바일에서도 칸이 너무 좁아지지 않도록 자동 칼럼 수 조정
+          gridTemplateColumns: `repeat(auto-fill, minmax(${minPx}px, 1fr))`,
           gridAutoFlow: "dense",
         }}
       >
@@ -71,8 +72,8 @@ export default function BrailleTablePage() {
         <Grid title="종성" items={finals} cols={8} />
       </section>
       <Grid title="모음" items={vowelsAll} cols={10} getSpan={(it) => Math.min(2, it.masks.length)} />
-      <Grid title="약자" items={abbrs} cols={10} getSpan={(it) => abbrCellsById[it.id] ?? 1} />
-      <Grid title="약어" items={abbrPhraseItems} cols={6} />
+      <Grid title="약자" items={abbrs} cols={10} minPx={112} getSpan={(it) => abbrCellsById[it.id] ?? 1} />
+      <Grid title="약어" items={abbrPhraseItems} cols={6} minPx={132} />
       <Grid title="숫자" items={numbersAll} cols={10} />
     </div>
   );
