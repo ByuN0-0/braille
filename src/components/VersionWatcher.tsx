@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function VersionWatcher({ version }: { version: string }) {
   const [stale, setStale] = useState(false);
