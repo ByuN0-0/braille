@@ -88,6 +88,14 @@ h1 {
   letter-spacing: var(--h1-tracking);
 }
 
+/* Braille glyph rendering: stabilize cell width and right-column dots */
+.braille-font {
+  font-family: "Apple Braille", "SimBraille", "Noto Sans Symbols 2", "Noto Sans Symbols", "Segoe UI Symbol", 'Pretendard Variable', Pretendard, sans-serif;
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+}
+
 /* Hero responsive title: max 76px, scales down on smaller screens */
 .hero-title {
   font-size: clamp(28px, 8vw, 76px);
