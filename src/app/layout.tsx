@@ -18,6 +18,32 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "만점 | 점자 학습",
   description: "자음·모음·숫자·생활 단어를 단계별로 익히세요",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://manjeom.biyeon.store"),
+  applicationName: "만점",
+  keywords: ["점자", "한글 점자", "점자 학습", "Braille", "한글"],
+  authors: [{ name: "만점" }],
+  openGraph: {
+    title: "만점 | 점자 학습",
+    description: "자음·모음·숫자·생활 단어를 단계별로 익히세요",
+    url: "/",
+    siteName: "만점",
+    images: [
+      { url: "/logo.png", width: 512, height: 512, alt: "만점 점자 학습" },
+    ],
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "만점 | 점자 학습",
+    description: "자음·모음·숫자·생활 단어를 단계별로 익히세요",
+    images: ["/logo.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
