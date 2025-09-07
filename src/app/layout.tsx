@@ -25,7 +25,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const appVersion = process.env.NEXT_PUBLIC_APP_VERSION ?? "dev";
+  const appVersion =
+    process.env.NEXT_PUBLIC_APP_VERSION ||
+    (process.env.VERCEL_GIT_COMMIT_SHA ? process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 7) : undefined) ||
+    process.env.BUILD_ID ||
+    "dev";
   return (
     <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>

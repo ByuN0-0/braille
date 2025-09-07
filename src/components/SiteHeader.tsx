@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import HardRefreshButton from "@/components/HardRefreshButton";
+import ClearStorageButton from "@/components/ClearStorageButton";
 
 export default function SiteHeader() {
   return (
@@ -22,6 +24,8 @@ export default function SiteHeader() {
             <span>점자표</span>
           </Link>
           <Link href="/learn" className="btn btn-primary">학습</Link>
+          <HardRefreshButton />
+          <ClearStorageButton />
         </div>
       </nav>
     </header>
