@@ -81,6 +81,7 @@ export default function QuizScreen({
             label={q.label}
             subtitle={cur.subtitle}
             answerMask={q.masks[0]}
+            answerMasks={q.masks}
             choices={cur.mcq!.choices}
             onResolved={({ correct }) => { setResult({ correct }); if (correct) setCorrectCount(v=>v+1); else setWrongCount(v=>v+1); }}
           />

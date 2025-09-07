@@ -1,5 +1,5 @@
 "use client";
-import { FC, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { DotPadInput } from "@/components/DotPadInput";
 import { BrailleGlyph, } from "@/components/BrailleGlyph";
 import { equalMasks } from "@/lib/braille";
@@ -16,6 +16,13 @@ export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle, on
 	const [history, setHistory] = useState<{ correct: boolean; given: number }[]>([]);
 	const isCorrect = useMemo(() => equalMasks([inputMask], [answerMasks[0]]), [inputMask, answerMasks]);
 
+	// 문제 변경 시 입력값/기록 초기화
+	useEffect(() => {
+		setInputMask(0);
+		setHistory([]);
+	// answerMasks 배열 변경을 안정적으로 감지
+	}, [label, JSON.stringify(answerMasks)]);
+
 	return (
 		<div className="space-y-3">
 			<div>
@@ -26,7 +33,6 @@ export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle, on
 			<DotPadInput value={inputMask} onChange={setInputMask} />
 			<div className="flex items-center gap-3">
 				<BrailleGlyph mask={inputMask} label="입력" />
-				<span className={`text-sm ${isCorrect ? "text-green-600" : "text-red-600"}`}>{isCorrect ? "정답" : "오답"}</span>
 			</div>
 			<div className="flex items-center gap-3 text-sm">
 				<button
