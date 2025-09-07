@@ -56,7 +56,9 @@ export default function QuizScreen({
   if (!cur) {
     return (
       <div className="space-y-6">
-        <div className="flex items-center justify-between"><h1 className="text-2xl font-bold">{title}</h1></div>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h1 className="text-2xl font-bold">{title}</h1>
+        </div>
         <div className="rounded-xl border p-6 text-sm text-gray-600">로딩 중...</div>
       </div>
     );
@@ -65,7 +67,7 @@ export default function QuizScreen({
   const q = cur.q;
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-2xl font-bold">{title}</h1>
         <div className="flex items-center gap-3 text-sm">
           <span>맞음 {correctCount}</span>
