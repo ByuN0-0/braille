@@ -17,11 +17,12 @@ export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle, on
 	const isCorrect = useMemo(() => equalMasks([inputMask], [answerMasks[0]]), [inputMask, answerMasks]);
 
 	// 문제 변경 시 입력값/기록 초기화
+	const answersKey = useMemo(() => answerMasks.join(","), [answerMasks]);
 	useEffect(() => {
 		setInputMask(0);
 		setHistory([]);
 	// answerMasks 배열 변경을 안정적으로 감지
-	}, [label, JSON.stringify(answerMasks)]);
+	}, [label, answersKey]);
 
 	return (
 		<div className="space-y-3">
