@@ -25,14 +25,25 @@ export default function QuizScreen({
   const totalCount = correctCount + wrongCount;
 
   const make = useCallback(() => {
+    if (mode === "mcq") {
+      const mcq = makeMcqQuestion(pool, { subtitleResolver });
+      const qFromMcq = { id: "", label: mcq.label, masks: mcq.answerMasks ?? (mcq.answerMask ? [mcq.answerMask] : []) } as SimpleItem;
+      return { q: qFromMcq, subtitle: mcq.subtitle, type: "mcq" as const, mcq } as const;
+    }
+    if (mode === "mix") {
+      const forcedType = Math.random() > 0.5 ? "mcq" : "input";
+      if (forcedType === "mcq") {
+        const mcq = makeMcqQuestion(pool, { subtitleResolver });
+        const qFromMcq = { id: "", label: mcq.label, masks: mcq.answerMasks ?? (mcq.answerMask ? [mcq.answerMask] : []) } as SimpleItem;
+        return { q: qFromMcq, subtitle: mcq.subtitle, type: "mcq" as const, mcq } as const;
+      }
+      const q = pickRandom(pool, 1)[0];
+      const subtitle = subtitleResolver?.(q);
+      return { q, subtitle, type: "input" as const, mcq: undefined } as const;
+    }
+    // mode === "input"
     const q = pickRandom(pool, 1)[0];
     const subtitle = subtitleResolver?.(q);
-    if (mode === "mcq" || mode === "mix") {
-      const mcq = makeMcqQuestion(pool, { subtitleResolver: () => subtitle });
-      const forcedType = mode === "mix" ? (Math.random() > 0.5 ? "mcq" : "input") : "mcq";
-      return { q, subtitle, type: forcedType, mcq } as const;
-    }
-    // input 고정
     return { q, subtitle, type: "input" as const, mcq: undefined } as const;
   }, [pool, mode, subtitleResolver]);
 
