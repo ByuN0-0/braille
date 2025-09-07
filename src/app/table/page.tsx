@@ -30,7 +30,7 @@ function Cell({ item, span = 1 }: { item: SimpleItem; span?: number }) {
   );
 }
 
-function Grid({ title, items, cols = 10, getSpan, minPx = 96 }: { title: string; items: SimpleItem[]; cols?: number; getSpan?: (item: SimpleItem) => number; minPx?: number }) {
+function Grid({ title, items, getSpan, minPx = 96 }: { title: string; items: SimpleItem[]; getSpan?: (item: SimpleItem) => number; minPx?: number }) {
   return (
     <section className="space-y-2">
       <h3 className="text-base font-semibold">{title}</h3>
@@ -68,13 +68,13 @@ export default function BrailleTablePage() {
       </header>
       <section className="space-y-4">
         <h2 className="text-lg font-semibold">자음</h2>
-        <Grid title="초성" items={initials} cols={8} />
-        <Grid title="종성" items={finals} cols={8} />
+        <Grid title="초성" items={initials} />
+        <Grid title="종성" items={finals} />
       </section>
-      <Grid title="모음" items={vowelsAll} cols={10} getSpan={(it) => Math.min(2, it.masks.length)} />
-      <Grid title="약자" items={abbrs} cols={10} minPx={112} getSpan={(it) => abbrCellsById[it.id] ?? 1} />
-      <Grid title="약어" items={abbrPhraseItems} cols={6} minPx={132} />
-      <Grid title="숫자" items={numbersAll} cols={10} />
+      <Grid title="모음" items={vowelsAll} getSpan={(it) => Math.min(2, it.masks.length)} />
+      <Grid title="약자" items={abbrs} minPx={112} getSpan={(it) => abbrCellsById[it.id] ?? 1} />
+      <Grid title="약어" items={abbrPhraseItems} minPx={132} />
+      <Grid title="숫자" items={numbersAll} />
     </div>
   );
 }
