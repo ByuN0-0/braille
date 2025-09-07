@@ -49,7 +49,7 @@ export default function QuizScreen({
 
   const [cur, setCur] = useState<ReturnType<typeof make> | null>(null);
   useEffect(() => { setCur(make()); }, [make]);
-  const [result, setResult] = useState<{ correct: boolean } | null>(null);
+  const [result, setResult] = useState<{ correct: boolean; selectedIndex?: number } | null>(null);
 
   const proceed = () => { setCur(make()); setResult(null); };
 
@@ -85,7 +85,7 @@ export default function QuizScreen({
             answerMask={q.masks[0]}
             answerMasks={q.masks}
             choices={cur.mcq!.choices}
-            onResolved={({ correct }) => { setResult({ correct }); if (correct) setCorrectCount(v=>v+1); else setWrongCount(v=>v+1); }}
+            onResolved={({ correct, selectedIndex }) => { setResult({ correct, selectedIndex }); if (correct) setCorrectCount(v=>v+1); else setWrongCount(v=>v+1); }}
           />
         ) : (
           <QuizInput
@@ -99,21 +99,79 @@ export default function QuizScreen({
 
       {result && (
         <button aria-label="결과 확인 후 다음 문제로" className="fixed inset-0 bg-black/50 flex items-center justify-center" onClick={proceed}>
-          <div className="bg-white dark:bg-neutral-900 rounded-xl p-6 shadow-xl max-w-md w-[90%] text-center space-y-3">
+          <div className="bg-white dark:bg-neutral-900 rounded-xl p-6 shadow-xl max-w-md w-[90%] text-left space-y-3">
             <h3 className={`text-xl font-semibold ${result.correct ? "text-green-600" : "text-red-600"}`}>{result.correct ? "정답입니다." : "오답입니다."}</h3>
             {!result.correct && (
-              <div className="text-sm text-gray-700 dark:text-gray-200 flex items-center justify-center gap-2">
-                정답:
-                {cur.type === "mcq" && cur.mcq!.questionType === "glyph-to-label" ? (
-                  <span className="font-medium">{q.label}</span>
-                ) : (
-                  <div className="flex items-center gap-2" aria-hidden>
-                    {q.masks.map((m, i) => (<BrailleDots key={i} mask={m} />))}
+              <div className="text-sm text-gray-700 dark:text-gray-200 flex items-center justify-start gap-2">
+                <div className="w-full space-y-2">
+                  {cur.type === "mcq" && typeof result.selectedIndex === "number" ? (
+                    <div className="flex items-center justify-start gap-3 rounded-md px-3 py-2 bg-red-50/30 dark:bg-red-900/5">
+                      <span className="text-gray-500">선택:</span>
+                      {(() => {
+                        const s = cur.mcq!.choices[result.selectedIndex!];
+                        if (cur.mcq!.questionType === "label-to-glyph") {
+                          // 문자 → 점자 맞추기: 선택 {점자} 문자: {문자}
+                          return (
+                            <>
+                              <div className="flex items-center gap-2" aria-hidden>
+                                {s.masks ? s.masks.map((m,i)=>(<BrailleDots key={i} mask={m}/>)) : <BrailleDots mask={s.mask!} />}
+                              </div>
+                              <span className="text-gray-500">문자:</span>
+                              <span className="font-medium">{s.label}</span>
+                            </>
+                          );
+                        } else {
+                          // 점자 → 문자 맞추기: 선택 {문자} 점자: {점자}
+                          return (
+                            <>
+                              <span className="font-medium">{s.label}</span>
+                              <span className="text-gray-500">점자:</span>
+                              <div className="flex items-center gap-2" aria-hidden>
+                                {s.masks ? s.masks.map((m,i)=>(<BrailleDots key={i} mask={m}/>)) : <BrailleDots mask={s.mask!} />}
+                              </div>
+                            </>
+                          );
+                        }
+                      })()}
+                    </div>
+                  ) : null}
+                  <div className="flex items-center justify-start gap-3 rounded-md px-3 py-2 bg-green-50/30 dark:bg-green-900/5">
+                    <span className="text-gray-500">정답:</span>
+                    {cur.type === "mcq" ? (
+                      cur.mcq!.questionType === "label-to-glyph" ? (
+                        // 문자 → 점자: {점자} 문자: {문자}
+                        <>
+                          <div className="flex items-center gap-2" aria-hidden>
+                            {q.masks.map((m, i) => (<BrailleDots key={i} mask={m} />))}
+                          </div>
+                          <span className="text-gray-500">문자:</span>
+                          <span className="font-medium">{q.label}</span>
+                        </>
+                      ) : (
+                        // 점자 → 문자: {문자} 점자: {점자}
+                        <>
+                          <span className="font-medium">{q.label}</span>
+                          <span className="text-gray-500">점자:</span>
+                          <div className="flex items-center gap-2" aria-hidden>
+                            {q.masks.map((m, i) => (<BrailleDots key={i} mask={m} />))}
+                          </div>
+                        </>
+                      )
+                    ) : (
+                      // 입력형은 기존 포맷 유지(문자 → 점자)
+                      <>
+                        <span className="font-medium">{q.label}</span>
+                        <span className="text-gray-500">점자:</span>
+                        <div className="flex items-center gap-2" aria-hidden>
+                          {q.masks.map((m, i) => (<BrailleDots key={i} mask={m} />))}
+                        </div>
+                      </>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             )}
-            <p className="text-xs text-gray-500">클릭하면 다음 문제로 이동합니다.</p>
+            <p className="text-xs text-gray-500 mt-6 pt-4 border-t border-gray-200 dark:border-neutral-700">클릭하면 다음 문제로 이동합니다.</p>
           </div>
         </button>
       )}
