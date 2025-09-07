@@ -7,16 +7,19 @@ import vowels from "@/data/vowels.json";
 import numbers from "@/data/numbers.json";
 import type { GlyphItem } from "@/lib/types";
 import BrailleDots from "@/components/BrailleDots";
-import { maskToUnicode } from "@/lib/braille";
 
 type SimpleItem = { id: string; label: string; masks: number[] };
 
-function Cell({ item }: { item: SimpleItem }) {
+function Cell({ item, span = 1 }: { item: SimpleItem; span?: number }) {
   return (
-    <div className="border rounded-lg p-2 min-h-[84px] flex flex-col items-center justify-between">
+    <div
+      className="border rounded-lg p-2 min-h-[84px] flex flex-col items-center justify-between"
+      style={span > 1 ? { gridColumn: `span ${span} / span ${span}` } : undefined}
+    >
       <div className="text-sm font-medium truncate max-w-full">{item.label}</div>
-      <div className="text-3xl leading-none inline-block rounded px-1 bg-yellow-200/60 dark:bg-yellow-400/20" aria-hidden>
-        {item.masks.map((m) => maskToUnicode(m)).join("")}
+      {/* 유니코드 표시 제거 */}
+      <div className="sr-only" aria-hidden>
+        점자 미리보기
       </div>
       <div className="flex gap-1 mt-1">
         {item.masks.map((m, i) => (
@@ -27,13 +30,19 @@ function Cell({ item }: { item: SimpleItem }) {
   );
 }
 
-function Grid({ title, items, cols = 10 }: { title: string; items: SimpleItem[]; cols?: number }) {
+function Grid({ title, items, cols = 10, getSpan }: { title: string; items: SimpleItem[]; cols?: number; getSpan?: (item: SimpleItem) => number }) {
   return (
     <section className="space-y-2">
       <h3 className="text-base font-semibold">{title}</h3>
-      <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
+      <div
+        className="grid gap-2"
+        style={{
+          gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+          gridAutoFlow: "dense",
+        }}
+      >
         {items.map((it) => (
-          <Cell key={it.id} item={it} />
+          <Cell key={it.id} item={it} span={Math.max(1, getSpan ? getSpan(it) : 1)} />
         ))}
       </div>
     </section>
@@ -45,7 +54,9 @@ export default function BrailleTablePage() {
   const finals = (consonantsFinal as unknown as GlyphItem[]).map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
   const vowelsAll = (vowels as unknown as GlyphItem[]).map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
   const numbersAll = (numbers as unknown as GlyphItem[]).map((n) => ({ id: n.id, label: n.label, masks: n.masks }));
-  const abbrs = (abbreviations as unknown as { id: string; label: string; masks: number[] }[]).map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
+  const abbrsRaw = (abbreviations as unknown as { id: string; label: string; masks: number[]; cells?: { masks: number[] }[] }[]);
+  const abbrs = abbrsRaw.map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
+  const abbrCellsById = Object.fromEntries(abbrsRaw.map((x) => [x.id, Math.max(1, Math.min(2, x.cells?.length ?? 1))]));
   const abbrPhraseItems = (abbrPhrases as unknown as { id: string; label: string; cells: { masks: number[] }[] }[]).map((p) => ({ id: p.id, label: p.label, masks: p.cells.flatMap((c) => c.masks) }));
 
   return (
@@ -59,8 +70,8 @@ export default function BrailleTablePage() {
         <Grid title="초성" items={initials} cols={8} />
         <Grid title="종성" items={finals} cols={8} />
       </section>
-      <Grid title="모음" items={vowelsAll} cols={10} />
-      <Grid title="약자" items={abbrs} cols={10} />
+      <Grid title="모음" items={vowelsAll} cols={10} getSpan={(it) => Math.min(2, it.masks.length)} />
+      <Grid title="약자" items={abbrs} cols={10} getSpan={(it) => abbrCellsById[it.id] ?? 1} />
       <Grid title="약어" items={abbrPhraseItems} cols={6} />
       <Grid title="숫자" items={numbersAll} cols={10} />
     </div>

@@ -12,7 +12,12 @@ export default function Learn() {
     { key: "consonants" as SectionKey, title: "약자·약어", desc: "약자/약어 객관식", href: "/practice/choice/abbrev" },
   ];
   const intermediate = [
-    { key: "words" as SectionKey, title: "단어", desc: "생활 단어 객관식", href: "/practice/choice/words" },
+    { key: "consonants" as SectionKey, title: "자음(초성)", desc: "입력형 연습", href: "/practice/input/initial" },
+    { key: "consonants" as SectionKey, title: "자음(종성)", desc: "입력형 연습", href: "/practice/input/final" },
+    { key: "vowels" as SectionKey, title: "모음", desc: "입력형 연습", href: "/practice/input/vowels" },
+    { key: "numbers" as SectionKey, title: "숫자", desc: "입력형 연습", href: "/practice/input/numbers" },
+    { key: "consonants" as SectionKey, title: "약자·약어", desc: "입력형 연습", href: "/practice/input/abbrev" },
+    { key: "words" as SectionKey, title: "단어 (구현중)", desc: "생활 단어 객관식", href: "/practice/choice/words" },
   ];
   const advanced = [
     { key: "words" as SectionKey, title: "혼합 샘플", desc: "입력/선택 혼합", href: "/practice/mix" },

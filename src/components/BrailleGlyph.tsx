@@ -1,22 +1,22 @@
 import { FC } from "react";
-import { maskToUnicode } from "@/lib/braille";
+import BrailleDots from "@/components/BrailleDots";
 
 type BrailleGlyphProps = {
 	mask: number;
 	label?: string;
 	className?: string;
-	highlight?: boolean; // 유니코드 배경 하이라이트
+	highlight?: boolean; // 강조 배경
+	labelFirst?: boolean; // 라벨을 왼쪽에 표시
 };
 
-export const BrailleGlyph: FC<BrailleGlyphProps> = ({ mask, label, className, highlight = true }) => {
-	const glyph = maskToUnicode(mask);
+export const BrailleGlyph: FC<BrailleGlyphProps> = ({ mask, label, className, highlight = false, labelFirst = false }) => {
 	return (
 		<div className={`flex items-center gap-3 ${className ?? ""}`}>
-			<span aria-hidden className={`text-4xl braille-font ${highlight ? "inline-block rounded px-1 bg-yellow-200/60 dark:bg-yellow-400/20" : ""}`}>{glyph}</span>
-			<span className="text-sm text-gray-600">
-				{label ? label + " " : ""}
-				<code className="px-1 py-0.5 rounded bg-black/[.05] dark:bg-white/[.06]">{glyph}</code>
+			{labelFirst && label ? <span className="text-sm text-gray-600">{label}</span> : null}
+			<span aria-hidden className={`${highlight ? "inline-block rounded px-1 bg-yellow-200/60 dark:bg-yellow-400/20" : ""}`}>
+				<BrailleDots mask={mask} />
 			</span>
+			{!labelFirst && label ? <span className="text-sm text-gray-600">{label}</span> : null}
 		</div>
 	);
 };

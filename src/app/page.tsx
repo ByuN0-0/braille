@@ -25,8 +25,7 @@ export default function Home() {
         <div className="flex items-center gap-8 flex-wrap">
           <DotPadInput value={mask} onChange={setMask} />
           <div className="flex items-center gap-6">
-            <BrailleGlyph mask={mask} label="현재 입력" />
-            <BrailleDots mask={mask} />
+            <BrailleGlyph mask={mask} label="현재 입력" labelFirst={true} />
           </div>
         </div>
       </section>

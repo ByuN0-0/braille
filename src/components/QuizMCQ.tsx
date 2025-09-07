@@ -1,6 +1,6 @@
 "use client";
 import { FC, useEffect, useMemo, useState } from "react";
-import { maskToUnicode } from "@/lib/braille";
+// remove unicode glyph usage
 import BrailleDots from "@/components/BrailleDots";
 
 type Choice = { label: string; mask?: number; masks?: number[] };
@@ -17,15 +17,11 @@ export type QuizMCQProps = {
 const renderGlyph = (mask?: number, masks?: number[]) => {
 	const arr = masks ?? (typeof mask === "number" ? [mask] : []);
 	if (arr.length === 0) return null;
-	const unicode = arr.map((m) => maskToUnicode(m)).join("");
 	return (
-		<div className="flex items-center gap-3">
-			<span className="text-4xl inline-block rounded px-1 bg-yellow-200/60 dark:bg-yellow-400/20" aria-hidden>{unicode}</span>
-			<div className="flex items-center gap-2">
-				{arr.map((m, i) => (
-					<BrailleDots key={i} mask={m} />
-				))}
-			</div>
+		<div className="flex items-center gap-2" aria-hidden>
+			{arr.map((m, i) => (
+				<BrailleDots key={i} mask={m} />
+			))}
 		</div>
 	);
 };

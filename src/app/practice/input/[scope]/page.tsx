@@ -44,13 +44,13 @@ function flattenItems(scope: string): { title: string; pool: PoolItem[] } {
   }
 }
 
-export default function ChoiceScopePage() {
+export default function InputScopePage() {
   const { scope } = useParams<{ scope: string }>();
   const { title, pool } = useMemo(() => flattenItems(scope), [scope]);
   const simple = useMemo<SimpleItem[]>(() => normalizeToSimple(pool), [pool]);
   const subtitleResolver = () => (scope === "initial" ? "초성" : scope === "final" ? "종성" : undefined);
   return (
-    <QuizScreen title={`${title} - 객관식 연습`} pool={simple} mode="mcq" subtitleResolver={subtitleResolver} />
+    <QuizScreen title={`${title} - 입력형 연습`} pool={simple} mode="input" subtitleResolver={subtitleResolver} />
   );
 }
 
