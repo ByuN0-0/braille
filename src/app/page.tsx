@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { DotPadInput } from "@/components/DotPadInput";
 import { BrailleGlyph } from "@/components/BrailleGlyph";
-import BrailleDots from "@/components/BrailleDots";
 
 export default function Home() {
   const [mask, setMask] = useState(0);

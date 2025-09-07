@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { makeMcqQuestion, pickRandom, type SimpleItem } from "@/lib/quiz";
 import QuizMCQ from "@/components/QuizMCQ";
