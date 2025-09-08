@@ -27,14 +27,14 @@ export default function QuizScreen({
   const make = useCallback(() => {
     if (mode === "mcq") {
       const mcq = makeMcqQuestion(pool, { subtitleResolver });
-      const qFromMcq = { id: "", label: mcq.label, masks: mcq.answerMasks ?? (mcq.answerMask ? [mcq.answerMask] : []) } as SimpleItem;
+      const qFromMcq = { id: "", label: mcq.label, masks: mcq.answerMasks ?? (typeof mcq.answerMask === "number" ? [mcq.answerMask] : []) } as SimpleItem;
       return { q: qFromMcq, subtitle: mcq.subtitle, type: "mcq" as const, mcq } as const;
     }
     if (mode === "mix") {
       const forcedType = Math.random() > 0.5 ? "mcq" : "input";
       if (forcedType === "mcq") {
         const mcq = makeMcqQuestion(pool, { subtitleResolver });
-        const qFromMcq = { id: "", label: mcq.label, masks: mcq.answerMasks ?? (mcq.answerMask ? [mcq.answerMask] : []) } as SimpleItem;
+        const qFromMcq = { id: "", label: mcq.label, masks: mcq.answerMasks ?? (typeof mcq.answerMask === "number" ? [mcq.answerMask] : []) } as SimpleItem;
         return { q: qFromMcq, subtitle: mcq.subtitle, type: "mcq" as const, mcq } as const;
       }
       const q = pickRandom(pool, 1)[0];
