@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import VersionWatcher from "@/components/VersionWatcher";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,16 +50,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const appVersion =
-    process.env.NEXT_PUBLIC_APP_VERSION ||
-    (process.env.VERCEL_GIT_COMMIT_SHA ? process.env.VERCEL_GIT_COMMIT_SHA.slice(0, 7) : undefined) ||
-    process.env.BUILD_ID ||
-    "dev";
   return (
     <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         <SiteHeader />
-        <VersionWatcher version={appVersion} />
         <main className="container py-10 flex-1">
           {children}
         </main>
