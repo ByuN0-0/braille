@@ -1,7 +1,7 @@
 "use client";
 import { FC, useEffect, useMemo, useState } from "react";
 import { DotPadInput } from "@/components/DotPadInput";
-import { BrailleGlyph, } from "@/components/BrailleGlyph";
+import BrailleDots from "@/components/BrailleDots";
 import { equalMasks } from "@/lib/braille";
 
 type QuizInputProps = {
@@ -12,17 +12,17 @@ type QuizInputProps = {
 };
 
 export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle, onResolved }) => {
-	const [inputMask, setInputMask] = useState(0);
-	const [history, setHistory] = useState<{ correct: boolean; given: number }[]>([]);
-	const isCorrect = useMemo(() => equalMasks([inputMask], [answerMasks[0]]), [inputMask, answerMasks]);
+	const [inputMasks, setInputMasks] = useState<number[]>([]);
+	const [history, setHistory] = useState<{ correct: boolean; given: number[] }[]>([]);
+	const isCorrect = useMemo(() => equalMasks(inputMasks, answerMasks), [inputMasks, answerMasks]);
 
 	// 문제 변경 시 입력값/기록 초기화
 	const answersKey = useMemo(() => answerMasks.join(","), [answerMasks]);
 	useEffect(() => {
-		setInputMask(0);
+		setInputMasks(Array.from({ length: Math.max(1, answerMasks.length) }, () => 0));
 		setHistory([]);
 	// answerMasks 배열 변경을 안정적으로 감지
-	}, [label, answersKey]);
+	}, [label, answersKey, answerMasks.length]);
 
 	return (
 		<div className="space-y-3">
@@ -31,22 +31,31 @@ export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle, on
 				<h3 className="text-xl font-semibold">{label}</h3>
 				{subtitle ? <p className="text-xs text-gray-500 mt-0.5">{subtitle}</p> : null}
 			</div>
-			<DotPadInput value={inputMask} onChange={setInputMask} />
-			<div className="flex items-center gap-3">
-				<BrailleGlyph mask={inputMask} label="입력" />
+			<div className="flex flex-wrap items-start gap-4">
+				{inputMasks.map((m, idx) => (
+					<div key={idx} className="flex flex-col items-center gap-2">
+						<DotPadInput
+							value={m}
+							onChange={(v) => setInputMasks((prev) => prev.map((pv, i) => (i === idx ? v : pv)))}
+						/>
+						<div className="flex items-center gap-2" aria-hidden>
+							<BrailleDots mask={m} />
+						</div>
+					</div>
+				))}
 			</div>
 			<div className="flex items-center gap-3 text-sm">
 				<button
 					type="button"
 					className="px-3 py-1.5 rounded border"
-					onClick={() => setInputMask(0)}
+					onClick={() => setInputMasks((prev) => prev.map(() => 0))}
 				>
 					초기화
 				</button>
 				<button
 					type="button"
 					className="px-3 py-1.5 rounded border"
-					onClick={() => setHistory((h) => [{ correct: isCorrect, given: inputMask }, ...h].slice(0, 5))}
+					onClick={() => setHistory((h) => [{ correct: isCorrect, given: [...inputMasks] }, ...h].slice(0, 5))}
 				>
 					기록
 				</button>
@@ -61,7 +70,7 @@ export const QuizInput: FC<QuizInputProps> = ({ label, answerMasks, subtitle, on
 			{history.length ? (
 				<ul className="text-xs text-gray-600 list-disc list-inside">
 					{history.map((h, idx) => (
-						<li key={idx}>{h.correct ? "정답" : "오답"} - 입력 마스크 {h.given}</li>
+						<li key={idx}>{h.correct ? "정답" : "오답"} - 입력 마스크 [{h.given.join(", ")}]</li>
 					))}
 				</ul>
 			) : null}
