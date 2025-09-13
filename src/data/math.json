@@ -7,7 +7,8 @@
   { "id": "math06", "label": "÷", "type": "math", "masks": [12,12], "cells": [ { "dots": [3,4], "masks": [12] }, { "dots": [3,4], "masks": [12] } ], "examples": ["6÷2"] },
   { "id": "math07", "label": "=", "type": "math", "masks": [18,18], "cells": [ { "dots": [2,5], "masks": [18] }, { "dots": [2,5], "masks": [18] } ], "examples": ["2+2=4"] },
   { "id": "math08", "label": "(", "type": "math", "masks": [38], "cells": [ { "dots": [2,3,6],  "masks": [38] } ], "examples": ["(a+b)"] },
-  { "id": "math09", "label": ")", "type": "math", "masks": [52], "cells": [ { "dots": [3,5,6],  "masks": [52] } ], "examples": ["(a+b)"] }
+  { "id": "math09", "label": ")", "type": "math", "masks": [52], "cells": [ { "dots": [3,5,6],  "masks": [52] } ], "examples": ["(a+b)"] },
+  { "id": "math10", "label": "─ (분수표)", "type": "math", "masks": [12], "cells": [ { "dots": [3,4],  "masks": [12] } ], "examples": ["1/2"] }
 ]
 
 
