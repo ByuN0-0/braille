@@ -9,6 +9,7 @@ export default function Learn() {
     { key: "consonants" as SectionKey, title: "자음(종성)", desc: "받침 자음을 익혀요", href: "/practice/choice/final" },
     { key: "vowels" as SectionKey, title: "모음", desc: "기본 모음을 익혀요", href: "/practice/choice/vowels" },
     { key: "numbers" as SectionKey, title: "숫자", desc: "숫자 객관식", href: "/practice/choice/numbers" },
+    { key: "vowels" as SectionKey, title: "영어(로마자)", desc: "영어 객관식", href: "/practice/choice/alphabet" },
     { key: "consonants" as SectionKey, title: "약자·약어", desc: "약자/약어 객관식", href: "/practice/choice/abbrev" },
   ];
   const intermediate = [
@@ -16,6 +17,7 @@ export default function Learn() {
     { key: "consonants" as SectionKey, title: "자음(종성)", desc: "입력형 연습", href: "/practice/input/final" },
     { key: "vowels" as SectionKey, title: "모음", desc: "입력형 연습", href: "/practice/input/vowels" },
     { key: "numbers" as SectionKey, title: "숫자", desc: "입력형 연습", href: "/practice/input/numbers" },
+    { key: "vowels" as SectionKey, title: "영어(로마자)", desc: "입력형 연습", href: "/practice/input/alphabet" },
     { key: "consonants" as SectionKey, title: "약자·약어", desc: "입력형 연습", href: "/practice/input/abbrev" },
     { key: "words" as SectionKey, title: "단어 (구현중)", desc: "생활 단어 객관식", href: "/practice/choice/words" },
   ];
