@@ -1,7 +1,6 @@
 [
   { "id": "math01", "label": ".", "type": "math", "masks": [4],  "cells": [ { "dots": [3],      "masks": [4] } ],  "examples": ["3.14"] },
   { "id": "math02", "label": ",", "type": "math", "masks": [2],  "cells": [ { "dots": [2],      "masks": [2] } ],  "examples": ["1,000"] },
-
   { "id": "math03", "label": "+", "type": "math", "masks": [34], "cells": [ { "dots": [2,6],    "masks": [34] } ], "examples": ["2+3"] },
   { "id": "math04", "label": "-", "type": "math", "masks": [20], "cells": [ { "dots": [3,5],    "masks": [20] } ], "examples": ["5-2"] },
   { "id": "math05", "label": "×", "type": "math", "masks": [33], "cells": [ { "dots": [1,6],    "masks": [33] } ], "examples": ["2×3"] },

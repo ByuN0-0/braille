@@ -5,6 +5,8 @@ import abbreviations from "@/data/abbreviations.json";
 import abbrPhrases from "@/data/abbr-phrases.json";
 import vowels from "@/data/vowels.json";
 import numbers from "@/data/numbers.json";
+import alphabet from "@/data/alphabet.json";
+import math from "@/data/math.json";
 import type { GlyphItem } from "@/lib/types";
 import BrailleDots from "@/components/BrailleDots";
 import Link from "next/link";
@@ -60,6 +62,10 @@ export default function BrailleTablePage() {
   const abbrs = abbrsRaw.map((x) => ({ id: x.id, label: x.label, masks: x.masks }));
   const abbrCellsById = Object.fromEntries(abbrsRaw.map((x) => [x.id, Math.max(1, Math.min(2, x.cells?.length ?? 1))]));
   const abbrPhraseItems = (abbrPhrases as unknown as { id: string; label: string; cells: { masks: number[] }[] }[]).map((p) => ({ id: p.id, label: p.label, masks: p.cells.flatMap((c) => c.masks) }));
+  const alphabetItems = (alphabet as unknown as { id: string; label: string; masks?: number[]; cells?: { masks: number[] }[] }[])
+    .map((x) => ({ id: x.id, label: x.label, masks: x.masks ?? x.cells?.flatMap((c) => c.masks) ?? [] }));
+  const mathItems = (math as unknown as { id: string; label: string; masks?: number[]; cells?: { masks: number[] }[] }[])
+    .map((x) => ({ id: x.id, label: x.label, masks: x.masks ?? x.cells?.flatMap((c) => c.masks) ?? [] }));
 
   return (
     <div className="space-y-6">
@@ -82,6 +88,8 @@ export default function BrailleTablePage() {
       <Grid title="약자" items={abbrs} minPx={112} getSpan={(it) => abbrCellsById[it.id] ?? 1} />
       <Grid title="약어" items={abbrPhraseItems} minPx={132} />
       <Grid title="숫자" items={numbersAll} />
+      <Grid title="수학 기호" items={mathItems} getSpan={(it) => Math.min(2, it.masks.length)} />
+      <Grid title="영어(로마자)" items={alphabetItems} getSpan={(it) => Math.min(2, it.masks.length)} />
     </div>
   );
 }
