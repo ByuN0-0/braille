@@ -7,6 +7,7 @@ import vowels from "@/data/vowels.json";
 import numbers from "@/data/numbers.json";
 import math from "@/data/math.json";
 import alphabet from "@/data/alphabet.json";
+import punctuation from "@/data/punctuation.json";
 import type { GlyphItem } from "@/lib/types";
 import { normalizeToSimple } from "@/lib/quiz";
 import QuizScreen from "@/components/QuizScreen";
@@ -34,7 +35,7 @@ export default function PracticeChoicePage() {
       title="선택형 연습"
       pool={normalizeToSimple(pool as unknown as GlyphItem[])}
       mode="mcq"
-      subtitleResolver={(it) => (initialIds.has(it.id) ? "초성" : (finalIds.has(it.id) ? "종성" : (mathIds.has(it.id) ? "수학기호" : undefined)))}
+      subtitleResolver={(it) => (initialIds.has(it.id) ? "초성" : (finalIds.has(it.id) ? "종성" : (mathIds.has(it.id) ? "수학기호" : (new Set(((punctuation as unknown as { id: string }[])).map((x) => x.id)).has(it.id) ? "문장부호" : undefined))))}
     />
   );
 }

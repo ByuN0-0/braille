@@ -9,6 +9,7 @@ import math from "@/data/math.json";
 import alphabet from "@/data/alphabet.json";
 import abbreviations from "@/data/abbreviations.json";
 import abbrPhrases from "@/data/abbr-phrases.json";
+import punctuation from "@/data/punctuation.json";
 import type { GlyphItem } from "@/lib/types";
 import QuizScreen from "@/components/QuizScreen";
 import { normalizeToSimple } from "@/lib/quiz";
@@ -26,6 +27,8 @@ const pool = [
     .map((x) => ({ id: x.id, label: x.label, masks: x.masks ?? (x.cells?.flatMap((c) => c.masks) ?? []) })) as unknown as GlyphItem[]),
   ...((abbrPhrases as unknown as { id: string; label: string; cells: { masks: number[] }[] }[])
     .map((p) => ({ id: p.id, label: p.label, masks: p.cells.flatMap((c) => c.masks) })) as unknown as GlyphItem[]),
+  ...((punctuation as unknown as { id: string; label: string; masks?: number[]; cells?: { masks: number[] }[] }[])
+    .map((x) => ({ id: x.id, label: x.label, masks: x.masks ?? (x.cells?.flatMap((c) => c.masks) ?? []) })) as unknown as GlyphItem[]),
 ];
 
 const initialIds = new Set((consonantsInitial as unknown as GlyphItem[]).map((x) => x.id));

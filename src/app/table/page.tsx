@@ -7,6 +7,7 @@ import vowels from "@/data/vowels.json";
 import numbers from "@/data/numbers.json";
 import alphabet from "@/data/alphabet.json";
 import math from "@/data/math.json";
+import punctuation from "@/data/punctuation.json";
 import type { GlyphItem } from "@/lib/types";
 import BrailleDots from "@/components/BrailleDots";
 import Link from "next/link";
@@ -66,6 +67,8 @@ export default function BrailleTablePage() {
     .map((x) => ({ id: x.id, label: x.label, masks: x.masks ?? x.cells?.flatMap((c) => c.masks) ?? [] }));
   const mathItems = (math as unknown as { id: string; label: string; masks?: number[]; cells?: { masks: number[] }[] }[])
     .map((x) => ({ id: x.id, label: x.label, masks: x.masks ?? x.cells?.flatMap((c) => c.masks) ?? [] }));
+  const punctuationItems = (punctuation as unknown as { id: string; label: string; masks?: number[]; cells?: { masks: number[] }[] }[])
+    .map((x) => ({ id: x.id, label: x.label, masks: x.masks ?? x.cells?.flatMap((c) => c.masks) ?? [] }));
 
   return (
     <div className="space-y-6">
@@ -77,6 +80,7 @@ export default function BrailleTablePage() {
         <Link href="/table/hangul" className="rounded-xl border p-3 text-center hover:shadow-sm">한글(초성·종성·모음)</Link>
         <Link href="/table/abbrev-all" className="rounded-xl border p-3 text-center hover:shadow-sm">약자/약어</Link>
         <Link href="/table/num-math" className="rounded-xl border p-3 text-center hover:shadow-sm">숫자/기호</Link>
+        <Link href="/table/punctuation" className="rounded-xl border p-3 text-center hover:shadow-sm">문장부호</Link>
         <Link href="/table/alphabet" className="rounded-xl border p-3 text-center hover:shadow-sm">영어(로마자) 표</Link>
       </nav>
       <section className="space-y-4">
@@ -90,6 +94,7 @@ export default function BrailleTablePage() {
       <Grid title="숫자" items={numbersAll} />
       <Grid title="수학 기호" items={mathItems} getSpan={(it) => Math.min(2, it.masks.length)} />
       <Grid title="영어(로마자)" items={alphabetItems} getSpan={(it) => Math.min(2, it.masks.length)} />
+      <Grid title="문장부호" items={punctuationItems} getSpan={(it) => Math.min(2, it.masks.length)} />
     </div>
   );
 }
