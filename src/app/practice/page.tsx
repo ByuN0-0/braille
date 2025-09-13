@@ -22,7 +22,7 @@ export default function Practice() {
     { key: "words" as SectionKey, title: "단어 (구현중)", desc: "생활 단어 객관식", href: "/practice/choice/words" },
   ];
   const advanced = [
-    { key: "words" as SectionKey, title: "혼합 샘플", desc: "입력/선택 혼합", href: "/practice/mix" },
+    { key: "words" as SectionKey, title: "전체 랜덤", desc: "입력/선택, 전체 점자 랜덤", href: "/practice/mix" },
   ];
 
   return (
