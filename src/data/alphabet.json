@@ -1,5 +1,5 @@
 [
-  { "id": "en00", "label": "로마자표", "type": "mark", "masks": [56], "cells": [ { "dots": [3,5,6], "masks": [56] } ], "examples": ["⠰abc"], "notes": "영문 로마자 시작 표시" },
+  { "id": "en00", "label": "로마자표", "type": "mark", "masks": [52], "cells": [ { "dots": [3,5,6], "masks": [52] } ], "examples": ["⠰abc"], "notes": "영문 로마자 시작 표시" },
   { "id": "en01", "label": "대문자표", "type": "mark", "masks": [32], "cells": [ { "dots": [6], "masks": [32] } ], "examples": ["⠠A"], "notes": "대문자 1글자 표시" },
   { "id": "en02", "label": "이중대문자표", "type": "mark", "masks": [32,32], "cells": [ { "dots": [6], "masks": [32] }, { "dots": [6], "masks": [32] } ], "examples": ["⠠⠠ABC"], "notes": "대문자 연속 표시" },
 
