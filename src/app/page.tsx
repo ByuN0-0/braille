@@ -14,7 +14,7 @@ export default function Home() {
         </h1>
         <p className="hero-subtitle text-gray-600">자음·모음·숫자·생활 단어를 단계별로 익히세요</p>
         <div className="hero-actions flex justify-center gap-5">
-          <Link href="/learn" className="btn btn-primary h-14 px-8 text-xl">학습 시작</Link>
+          <Link href="/practice" className="btn btn-primary h-14 px-8 text-xl">학습 시작</Link>
           <Link href="/table" className="btn btn-secondary h-14 px-8 text-xl">점자표</Link>
         </div>
       </section>

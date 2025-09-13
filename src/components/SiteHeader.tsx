@@ -21,7 +21,7 @@ export default function SiteHeader() {
             </svg>
             <span>점자표</span>
           </Link>
-          <Link href="/learn" className="btn btn-primary">학습</Link>
+          <Link href="/practice" className="btn btn-primary">학습</Link>
         </div>
       </nav>
     </header>

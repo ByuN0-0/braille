@@ -9,6 +9,7 @@ import words from "@/data/words.json";
 import abbreviations from "@/data/abbreviations.json";
 import abbrPhrases from "@/data/abbr-phrases.json";
 import alphabet from "@/data/alphabet.json";
+import math from "@/data/math.json";
 import QuizScreen from "@/components/QuizScreen";
 import { normalizeToSimple, type SimpleItem } from "@/lib/quiz";
 
@@ -28,8 +29,11 @@ function flattenItems(scope: string): { title: string; pool: PoolItem[] } {
       return { title: "자음(종성)", pool: toPoolSingle(finals as unknown as WithMasks[]) };
     case "vowels":
       return { title: "모음", pool: toPoolSingle(vowels as unknown as WithMasks[]) };
-    case "numbers":
-      return { title: "숫자", pool: toPoolSingle(numbers as unknown as WithMasks[]).filter((x) => x.label !== "수표") };
+    case "numbers": {
+      const numOnly = toPoolSingle(numbers as unknown as WithMasks[]).filter((x) => x.label !== "수표");
+      const mathAll = toPoolMulti(math as unknown as WithMasks[]);
+      return { title: "숫자/기호", pool: [...numOnly, ...mathAll] };
+    }
     case "alphabet":
       return { title: "영어(로마자)", pool: toPoolMulti(alphabet as unknown as WithMasks[]) };
     case "abbrev":

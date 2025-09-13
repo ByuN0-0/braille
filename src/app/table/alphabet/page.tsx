@@ -12,33 +12,31 @@ export default function AlphabetPage() {
   const [selected, setSelected] = useState<AlphaItem | null>(null);
 
   const getMasks = (it: AlphaItem): number[] => it.masks ?? it.cells?.flatMap((c) => c.masks) ?? [];
+  const getSpan = (it: AlphaItem): number => (it.cells?.length === 2 ? 2 : 1);
 
   return (
     <div className="space-y-6">
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">영어(로마자)</h1>
-        <Link href="/learn" className="text-sm underline">← 목록</Link>
+        <Link href="/table" className="text-sm underline">← 표로</Link>
       </header>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-4">
         {items.map((it) => (
           <button
             key={it.id}
             className="rounded-xl border p-3 text-left hover:shadow-sm"
+            style={getSpan(it) > 1 ? { gridColumn: `span 2 / span 2` } : undefined}
             onClick={() => setSelected(it)}
           >
-            <div className="flex items-center gap-3">
-              <span className="text-lg font-semibold">{it.label}</span>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-sm font-medium">{it.label}</span>
               {getMasks(it).length > 0 ? (
-                getMasks(it).length === 1 ? (
-                  <BrailleGlyph mask={getMasks(it)[0]} />
-                ) : (
-                  <div className="flex items-center gap-2" aria-hidden>
-                    {getMasks(it).map((m, idx) => (
-                      <BrailleDots key={idx} mask={m} />
-                    ))}
-                  </div>
-                )
+                <div className="flex items-center gap-2" aria-hidden>
+                  {getMasks(it).map((m, idx) => (
+                    <BrailleDots key={idx} mask={m} />
+                  ))}
+                </div>
               ) : null}
             </div>
           </button>
