@@ -22,6 +22,7 @@ const pool = [
 
 const initialIds = new Set((consonantsInitial as unknown as GlyphItem[]).map((x) => x.id));
 const finalIds = new Set((consonantsFinal as unknown as GlyphItem[]).map((x) => x.id));
+const mathIds = new Set(((math as unknown as { id: string }[])).map((x) => x.id));
 
 export default function PracticeInputOnlyPage() {
   return (
@@ -29,7 +30,7 @@ export default function PracticeInputOnlyPage() {
       title="입력형 연습"
       pool={normalizeToSimple(pool as unknown as GlyphItem[])}
       mode="input"
-      subtitleResolver={(it) => (initialIds.has(it.id) ? "초성" : (finalIds.has(it.id) ? "종성" : undefined))}
+      subtitleResolver={(it) => (initialIds.has(it.id) ? "초성" : (finalIds.has(it.id) ? "종성" : (mathIds.has(it.id) ? "수학기호" : undefined)))}
     />
   );
 }
