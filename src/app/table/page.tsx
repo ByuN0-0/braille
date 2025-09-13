@@ -68,10 +68,10 @@ export default function BrailleTablePage() {
         <p className="text-sm text-gray-600">데이터 기반 자동 생성. 인쇄 친화적 그리드 레이아웃.</p>
       </header>
       <nav className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <Link href="/table/hangul" className="rounded-xl border p-3 text-center hover:shadow-sm">한글(초성·종성·모음)</Link>
+        <Link href="/table/abbrev-all" className="rounded-xl border p-3 text-center hover:shadow-sm">약자/약어</Link>
         <Link href="/table/num-math" className="rounded-xl border p-3 text-center hover:shadow-sm">숫자/기호</Link>
         <Link href="/table/alphabet" className="rounded-xl border p-3 text-center hover:shadow-sm">영어(로마자) 표</Link>
-        <Link href="/table/hangul" className="rounded-xl border p-3 text-center hover:shadow-sm">한글(초성·종성·모음)</Link>
-        <Link href="/table/abbrev-all" className="rounded-xl border p-3 text-center hover:shadow-sm">약자/약어 통합</Link>
       </nav>
       <section className="space-y-4">
         <h2 className="text-lg font-semibold">자음</h2>
