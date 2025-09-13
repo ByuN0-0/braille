@@ -1,25 +1,25 @@
 [
-    { "id": "p01", "label": "~", "type": "punctuation", "masks": [8, 20],
-      "cells": [ { "dots": [4], "masks": [8] }, { "dots": [3,5], "masks": [20] } ] },
-  
-    { "id": "p02", "label": ".", "type": "punctuation", "masks": [50],
+    { "id": "p01", "label": ".", "type": "punctuation", "masks": [50],
       "cells": [ { "dots": [2,5,6], "masks": [50] } ] },
-  
-    { "id": "p03", "label": ";", "type": "punctuation", "masks": [48, 6],
-      "cells": [ { "dots": [5,6], "masks": [48] }, { "dots": [2,3], "masks": [6] } ] },
-  
-    { "id": "p04", "label": ":", "type": "punctuation", "masks": [16, 2],
-      "cells": [ { "dots": [5], "masks": [16] }, { "dots": [2], "masks": [2] } ] },
-  
-    { "id": "p05", "label": ",", "type": "punctuation", "masks": [16],
+
+    { "id": "p02", "label": ",", "type": "punctuation", "masks": [16],
       "cells": [ { "dots": [5], "masks": [16] } ] },
-  
-    { "id": "p06", "label": "!", "type": "punctuation", "masks": [22],
+
+    { "id": "p03", "label": "!", "type": "punctuation", "masks": [22],
       "cells": [ { "dots": [2,3,5], "masks": [22] } ] },
   
-    { "id": "p07", "label": "?", "type": "punctuation", "masks": [38],
+    { "id": "p04", "label": "?", "type": "punctuation", "masks": [38],
       "cells": [ { "dots": [2,3,6], "masks": [38] } ] },
+
+    { "id": "p05", "label": "~", "type": "punctuation", "masks": [8, 20],
+      "cells": [ { "dots": [4], "masks": [8] }, { "dots": [3,5], "masks": [20] } ] },
   
+    { "id": "p06", "label": ";", "type": "punctuation", "masks": [48, 6],
+      "cells": [ { "dots": [5,6], "masks": [48] }, { "dots": [2,3], "masks": [6] } ] },
+  
+    { "id": "p07", "label": ":", "type": "punctuation", "masks": [16, 2],
+      "cells": [ { "dots": [5], "masks": [16] }, { "dots": [2], "masks": [2] } ] },
+
     { "id": "p08", "label": "“", "type": "punctuation", "masks": [38],
       "cells": [ { "dots": [2,3,6], "masks": [38] } ] },
   
@@ -35,8 +35,8 @@
     { "id": "p12", "label": "(", "type": "punctuation", "masks": [38, 4],
       "cells": [ { "dots": [2,3,6], "masks": [38] }, { "dots": [3], "masks": [4] } ] },
   
-    { "id": "p13", "label": ")", "type": "punctuation", "masks": [32, 38],
-      "cells": [ { "dots": [6], "masks": [32] }, { "dots": [2,3,6], "masks": [38] } ] },
+    { "id": "p13", "label": ")", "type": "punctuation", "masks": [32, 52],
+      "cells": [ { "dots": [6], "masks": [32] }, { "dots": [3,5,6], "masks": [52] } ] },
   
     { "id": "p14", "label": "{", "type": "punctuation", "masks": [38, 2],
       "cells": [ { "dots": [2,3,6], "masks": [38] }, { "dots": [2], "masks": [2] } ] },
@@ -50,8 +50,7 @@
     { "id": "p17", "label": "]", "type": "punctuation", "masks": [48, 52],
       "cells": [ { "dots": [5,6], "masks": [48] }, { "dots": [3,5,6], "masks": [52] } ] },
   
-    { "id": "p18", "label": "-", "type": "punctuation", "masks": [36],
-      "cells": [ { "dots": [3,6], "masks": [36] } ] },
+    
   
     { "id": "p19", "label": "*(※)", "type": "punctuation", "masks": [16, 20],
       "cells": [ { "dots": [5], "masks": [16] }, { "dots": [3,5], "masks": [20] } ] },
@@ -66,6 +65,9 @@
       "cells": [ { "dots": [5,6], "masks": [48] }, { "dots": [2,3,6], "masks": [38] } ] },
   
     { "id": "p23", "label": "』", "type": "punctuation", "masks": [52, 6],
-      "cells": [ { "dots": [3,5,6], "masks": [52] }, { "dots": [2,3], "masks": [6] } ] }
+      "cells": [ { "dots": [3,5,6], "masks": [52] }, { "dots": [2,3], "masks": [6] } ] },
+
+      { "id": "p18", "label": "-", "type": "punctuation", "masks": [36],
+      "cells": [ { "dots": [3,6], "masks": [36] } ] }
   ]
   
