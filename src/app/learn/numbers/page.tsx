@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import data from "@/data/numbers.json";
-import { maskToUnicode } from "@/lib/braille";
+import { BrailleGlyph } from "@/components/BrailleGlyph";
 import BrailleDots from "@/components/BrailleDots";
 import Link from "next/link";
 import type { GlyphItem } from "@/lib/types";
@@ -26,7 +26,7 @@ export default function NumbersPage() {
           >
             <div className="flex items-center gap-3">
               <span className="text-lg font-semibold">{it.label}</span>
-              <span className="text-2xl" aria-hidden>{it.masks.map((m) => maskToUnicode(m)).join("")}</span>
+              <BrailleGlyph mask={it.masks[0]} />
             </div>
           </button>
         ))}
@@ -39,7 +39,7 @@ export default function NumbersPage() {
             <button className="text-sm underline" onClick={() => setSelected(null)}>닫기</button>
           </div>
           <div className="flex items-center gap-6 flex-wrap mb-3">
-            <span className="text-3xl" aria-hidden>{selected.masks.map((m) => maskToUnicode(m)).join("")}</span>
+            <BrailleGlyph mask={selected.masks[0]} label="점자" />
             <div className="flex items-center gap-4">
               {selected.masks.map((m, idx) => (
                 <BrailleDots key={idx} mask={m} />

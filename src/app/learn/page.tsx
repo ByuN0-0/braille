@@ -23,8 +23,6 @@ export default function Learn() {
     { key: "words" as SectionKey, title: "혼합 샘플", desc: "입력/선택 혼합", href: "/practice/mix" },
   ];
 
-  // 진행률 계산을 제거했습니다.
-
   return (
     <div className="space-y-6">
       <h1>학습</h1>
